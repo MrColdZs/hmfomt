@@ -2125,6 +2125,12 @@ const TOOLS = [
   ['4E','Gem of the Goddess'],['4F','Gem of the Kappa'],['50','Gem of the Truth']
 ];
 
+/* Tool slot base addresses — each slot sits two bytes further along. */
+const TOOL_SLOT_ADDRS = [
+  ['32004238','Slot 1'],['3200423A','Slot 2'],['3200423C','Slot 3'],['3200423E','Slot 4'],
+  ['32004240','Slot 5'],['32004242','Slot 6'],['32004244','Slot 7'],['32004246','Slot 8']
+];
+
 /* ── Items ── */
 const ITEMS = [
   ['0000','Turnip'],['0100','Potato'],['0200','Cucumber'],['0300','Strawberry'],['0400','Cabbage'],['0500','Tomato'],['0600','Corn'],['0700','Onion'],
@@ -2416,6 +2422,11 @@ SECTIONS.forEach(sec => {
 
   if (sec.ref === 'tool') {
     html += `<div class="mt-9">
+      <h3 class="font-display font-extrabold text-lg mb-1">Tool slot addresses</h3>
+      <p class="text-sm text-inksoft">Each of the eight slots has its own base address, two bytes apart. Pick a slot below, take the tool&rsquo;s <span class="font-mono text-[13px] font-bold">yy</span> value from the list underneath, and join them into one line &mdash; e.g. Teleport Stone (<span class="font-mono text-[13px]">4D</span>) in slot 1 becomes <span class="font-mono text-[13px] font-bold">32004238 004D</span>.</p>
+      ${refTable('tool-slot-ref', TOOL_SLOT_ADDRS, 'Slot', v => v)}
+    </div>
+    <div class="mt-9">
       <h3 class="font-display font-extrabold text-lg mb-1">Complete tool list</h3>
       <p class="text-sm text-inksoft">Two-digit hexadecimal value for the <span class="font-mono text-[13px] font-bold">yy</span> field.</p>
       ${refTable('tool-ref', TOOLS, 'Tool', v => `32004238 00${v}`)}
@@ -2612,7 +2623,7 @@ function applySearch(q) {
   });
 
   // Reference table counters
-  ['tool-ref', 'item-ref', 'day-ref', 'recipe-ref'].forEach(id => {
+  ['tool-slot-ref', 'tool-ref', 'slot-ref', 'item-ref', 'day-ref', 'recipe-ref'].forEach(id => {
     const tbl = $('#' + id);
     const cnt = $('#' + id + '-count');
     if (!tbl || !cnt) return;
