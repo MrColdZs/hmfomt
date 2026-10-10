@@ -2168,6 +2168,13 @@ const ITEMS = [
   ['5901','Lumber'],['5A01','Golden Lumber'],['5B01','Animal Feed'],['5C01','Chicken Feed'],['5D01','Certificate'],['5E01','Frisbee']
 ];
 
+/* Backpack slot base addresses — each slot is 0x4 (four bytes / 8 hex
+   chars >= 40 as the 32-bit address) further along than the last. */
+const SLOT_ADDRS = [
+  ['82004214','Slot 1'],['82004218','Slot 2'],['8200421C','Slot 3'],['82004220','Slot 4'],
+  ['82004224','Slot 5'],['82004228','Slot 6'],['8200422C','Slot 7'],['82004230','Slot 8']
+];
+
 /* ── Seasons ── */
 const SEASONS = ['Spring','Summer','Fall','Winter'];
 
@@ -2425,6 +2432,11 @@ SECTIONS.forEach(sec => {
 
   if (sec.ref === 'item') {
     html += `<div class="mt-9">
+      <h3 class="font-display font-extrabold text-lg mb-1">Backpack slot addresses</h3>
+      <p class="text-sm text-inksoft">Each of the eight slots has its own base address, four bytes apart. Pick a slot below, take the item&rsquo;s <span class="font-mono text-[13px] font-bold">yyyy</span> value from the list underneath, and join them into one line &mdash; e.g. Mythic Stone (<span class="font-mono text-[13px]">1C01</span>) in slot 1 becomes <span class="font-mono text-[13px] font-bold">82004214 1C01</span>.</p>
+      ${refTable('slot-ref', SLOT_ADDRS, 'Slot', v => v)}
+    </div>
+    <div class="mt-9">
       <h3 class="font-display font-extrabold text-lg mb-1">Complete item list</h3>
       <p class="text-sm text-inksoft">Four-digit hexadecimal value for the <span class="font-mono text-[13px] font-bold">yyyy</span> field. A few ranges really are empty in the original source.</p>
       ${refTable('item-ref', ITEMS, 'Item', v => `82004214 ${v}`)}
