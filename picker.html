@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#222; color:#fff; text-align:center;">
+  <h2>Click the Gold icon (or any icon) to get its coordinates!</h2>
+  <div id="out" style="font-size:24px; color:yellow; margin:10px;">Click somewhere...</div>
+  <div style="position:relative; display:inline-block; border:1px solid #444;" id="container">
+    <img src="sheet.png" id="img" style="cursor:crosshair; image-rendering: pixelated;">
+    <div id="box" style="position:absolute; border:2px solid red; pointer-events:none; display:none; width:16px; height:16px;"></div>
+  </div>
+  <script>
+    const img = document.getElementById('img');
+    const box = document.getElementById('box');
+    const out = document.getElementById('out');
+    img.addEventListener('click', e => {
+      const rect = img.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      // assuming 16x16 grid with 1px margin or something, let's just snap to 16x16
+      // Actually, let's just show the exact raw pixel x, y
+      out.textContent = `You clicked X: ${Math.floor(x)}, Y: ${Math.floor(y)}. Tell Antigravity these coordinates!`;
+    });
+  </script>
+</body>
+</html>

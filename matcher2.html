@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="sheet" src="sheet_transparent.png" crossorigin="anonymous">
+<div id="out">Processing...</div>
+<script>
+async function matchAll() {
+  const sheet = document.getElementById('sheet');
+  const out = document.getElementById('out');
+  
+  const files = [
+    'mine_alexandrite.gif', 'mine_gold.gif', 'pirate_treasure.gif', 'sell_redmagicred.gif', 'tool_wcan_sil.png', 'boy_tool5.png', 'mine_sagestone.png', 'veg_corn.png', 'grass_green.png', 'icon_dog.png', 'icon_horse.png', 'icon_chickens.png', 'icon_cow.png', 'house_villa.png', 'house_farm.png', 'house_beach.png', 'wool_sm.png', 'free_apple.gif', 'grass_yellow.png', 'grass_blue.png'
+  ]; // Add more if needed
+
+  const c1 = document.createElement('canvas');
+  c1.width = sheet.width; c1.height = sheet.height;
+  const ctx1 = c1.getContext('2d');
+  ctx1.drawImage(sheet, 0, 0);
+  const d1 = ctx1.getImageData(0,0,c1.width,c1.height).data;
+  
+  let results = {};
+  
+  for (const f of files) {
+    const img = new Image();
+    img.src = 'items/' + f;
+    await new Promise(r => { img.onload = r; img.onerror = r; });
+    if (!img.width) continue;
+    
+    const c2 = document.createElement('canvas');
+    c2.width = img.width; c2.height = img.height;
+    const ctx2 = c2.getContext('2d');
+    ctx2.drawImage(img, 0, 0);
+    const d2 = ctx2.getImageData(0,0,c2.width,c2.height).data;
+    
+    let best = -1;
+    let bx = -1, by = -1;
+    
+    for (let y = 0; y <= c1.height - c2.height; y++) {
+      for (let x = 0; x <= c1.width - c2.width; x++) {
+        let score = 0;
+        let valid = true;
+        for (let ty = 0; ty < c2.height; ty++) {
+          for (let tx = 0; tx < c2.width; tx++) {
+            const i2 = (ty * c2.width + tx) * 4;
+            if (d2[i2+3] === 0) continue;
+            
+            const i1 = ((y + ty) * c1.width + (x + tx)) * 4;
+            if (d1[i1+3] === 0) {
+              score += 255*3;
+            } else {
+              score += Math.abs(d1[i1]-d2[i2]) + Math.abs(d1[i1+1]-d2[i2+1]) + Math.abs(d1[i1+2]-d2[i2+2]);
+            }
+            if (best !== -1 && score >= best) { valid = false; break; }
+          }
+          if (!valid) break;
+        }
+        if (valid && (best === -1 || score < best)) {
+          best = score;
+          bx = x; by = y;
+        }
+      }
+    }
+    results[f] = {x: bx, y: by, w: img.width, h: img.height};
+  }
+  
+  out.textContent = JSON.stringify(results);
+}
+window.onload = matchAll;
+</script>
+</body>
+</html>

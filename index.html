@@ -1,0 +1,2739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvest Moon: Friends of Mineral Town — Code Breaker Archive</title>
+<meta name="description" content="Every Code Breaker cheat for Harvest Moon: Friends of Mineral Town. Gold, stamina, livestock, tools, items, weather, and dates, with a copy button on every line.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="pete.webp" type="image/svg+xml">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['"Pixelify Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"Pixelify Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"Silkscreen"', 'ui-monospace', 'monospace'],
+        code: ['"VT323"', 'ui-monospace', 'monospace'],
+      },
+      colors: {
+        paper:  '#F7F2E8',
+        paper2: '#FFFDF7',
+        ink:    '#22312A',
+        inksoft:'#445749',
+        rule:   '#C9D6D2',
+        coral:  '#F0565C',
+        leaf:   '#4E9E5E',
+        leafdeep:'#33713F',
+        sun:    '#FBE45C',
+        sky:    '#8DB9CF',
+        blush:  '#F3D3CE',
+        mint:   '#E4F2E2',
+      },
+    }
+  }
+}
+</script>
+<style>
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; }
+
+  /* ── Cute Polka Dot Background (Classic HM Menu Style) ──────── */
+  body {
+    background-color: #F7F2E8;
+    background-image: radial-gradient(#4E9E5E25 2.5px, transparent 2.5px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+  }
+
+  /* ── Subtle GBA / Retro Screen Scanlines ────────────────────── */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.03) 50%);
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  /* ── 1-bit dither texture, the way old artwork faked shading ── */
+  .dither {
+    background-image:
+      linear-gradient(45deg, rgba(34,49,42,.09) 25%, transparent 25% 75%, rgba(34,49,42,.09) 75%),
+      linear-gradient(45deg, rgba(34,49,42,.09) 25%, transparent 25% 75%, rgba(34,49,42,.09) 75%);
+    background-size: 4px 4px;
+    background-position: 0 0, 2px 2px;
+  }
+
+  /* Headings never hide behind the sticky bars */
+  [data-anchor] { scroll-margin-top: 8rem; }
+
+  /* ── Uniform sticker-tile for item icons ────────────────────── */
+  .icon-tile {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; flex: none;
+    background: #FFFDF7;
+    border: 1px solid rgba(34,49,42,.5);
+    box-shadow: inset 0 0 0 1px rgba(247,242,232,.65);
+    overflow: hidden;
+  }
+  .icon-tile img { width: 100%; height: 100%; object-fit: contain; }
+
+  /* ── Notebook margin rules down both sides of the sheet ─────── */
+  .sheet-rule { position: absolute; top: 0; bottom: 0; width: 2px; background: #F0565C; opacity: .32; }
+
+  /* ── Code block: a framed, ruled sheet of codes ─────────────── */
+  .codeblock { border: 2px solid #22312A; background: #FFFDF7; }
+  .chead {
+    display: flex; align-items: center; gap: .75rem;
+    padding: .4rem .45rem .4rem .7rem;
+    border-bottom: 2px solid #22312A;
+    background: #F7F2E8;
+  }
+  .chead-title {
+    font-family: '"Pixelify Sans"', system-ui, sans-serif;
+    font-weight: 600; font-size: 17px; letter-spacing: -.005em; line-height: 1.25;
+  }
+  .copy-tab {
+    margin-left: auto; flex-shrink: 0;
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .22rem .5rem;
+    font-family: '"Silkscreen"', ui-monospace, monospace;
+    font-size: 10px; font-weight: 700; letter-spacing: .04em;
+    color: #22312A; background: #FBE45C;
+    border: 2px solid #22312A;
+    box-shadow: 3px 3px 0 #22312A;
+    cursor: pointer;
+    transition: background .1s, color .1s, box-shadow .1s, transform .1s;
+  }
+  .copy-tab:hover { background: #22312A; color: #FBE45C; }
+  .copy-tab:active { transform: translate(3px, 3px); box-shadow: 0 0 0 #22312A; }
+  .copy-tab:focus-visible { outline: 3px solid #4E9E5E; outline-offset: 2px; }
+  .copy-tab[data-done="1"] { background: #4E9E5E; color: #FFFDF7; }
+
+  .codetable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: '"VT323"', ui-monospace, monospace;
+    font-size: 20px;
+    line-height: 1.12;
+  }
+  .codetable td { border-bottom: 1px solid rgba(34,49,42,.22); padding: .22rem .7rem .28rem; vertical-align: middle; }
+  .codetable tr:last-child td { border-bottom: 0; }
+  .codetable td:last-child { border-right: 0; }
+  .codetable .ca { color: #4A5C50; white-space: nowrap; width: 9.5rem; border-right: 1px solid rgba(34,49,42,.22); }
+  .codetable .cv { color: #1B2A21; background-color: #CDE8C9; white-space: nowrap; width: 6.5rem; border-right: 1px solid rgba(34,49,42,.22);
+    background-image:
+      linear-gradient(45deg, rgba(34,49,42,.09) 25%, transparent 25% 75%, rgba(34,49,42,.09) 75%),
+      linear-gradient(45deg, rgba(34,49,42,.09) 25%, transparent 25% 75%, rgba(34,49,42,.09) 75%);
+    background-size: 4px 4px; background-position: 0 0, 2px 2px; }
+  .codetable .cc { color: #4A5C50; font-size: 19px; }
+  .codetable .sw {
+    float: left; width: .85rem; height: .85rem;
+    border: 2px solid #22312A; margin: .2rem .5rem 0 0;
+  }
+  .codetable .cc-txt { display: block; overflow: hidden; }
+  .codeblock + .note { margin-top: .55rem; }
+
+  /* ── Contents list ──────────────────────────────────────────── */
+  .toc-link {
+    display: flex; align-items: center; gap: .45rem;
+    padding: .38rem .45rem;
+    font-size: .8125rem; line-height: 1.25; color: #445749;
+    border-left: 3px solid transparent;
+    transition: color .12s, background .12s, border-color .12s;
+  }
+  .toc-link:hover { color: #22312A; background: #FFFDF7; }
+  .toc-link[aria-current="true"] { color: #22312A; background: #FFFDF7; border-left-color: #4E9E5E; font-weight: 600; }
+  .toc-link:focus-visible { outline: 3px solid #4E9E5E; outline-offset: 1px; }
+
+  /* ── Section number chip, tinted per category ───────────────── */
+  .chip {
+    display: inline-grid; place-items: center;
+    min-width: 2.1rem; height: 2.1rem; padding: 0 .4rem;
+    font-family: '"Silkscreen"', ui-monospace, monospace; font-size: 12px; font-weight: 700;
+    border: 2px solid #22312A; color: #22312A;
+    box-shadow: 3px 3px 0 #22312A;
+  }
+
+  /* ── Buttons: square, outlined, printed, with a hard offset ─── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    padding: .7rem 1.15rem;
+    font-size: .9375rem; font-weight: 600;
+    border: 2px solid #22312A;
+    box-shadow: 4px 4px 0 #22312A;
+    transition: background .1s, color .1s, box-shadow .1s, transform .1s;
+  }
+  .btn:hover { transform: translate(1px, 1px); box-shadow: 3px 3px 0 #22312A; }
+  .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 #22312A; }
+  .btn-solid { background: #4E9E5E; color: #FFFDF7; }
+  .btn-solid:hover { background: #33713F; }
+  .btn-ghost { background: #FFFDF7; color: #22312A; }
+  .btn-ghost:hover { background: #FBE45C; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 3px solid #4E9E5E; outline-offset: 2px;
+  }
+
+  .row-copy {
+    display: inline-grid; place-items: center;
+    width: 1.9rem; height: 1.9rem;
+    border: 2px solid transparent;
+    color: #5C6E62; background: transparent;
+    transition: color .12s, background .12s, border-color .12s;
+  }
+  .row-copy:hover { color: #22312A; background: #FBE45C; border-color: #22312A; }
+
+  mark.hl { background: #FBE45C; color: #22312A; padding: 0 .1em; }
+
+  /* ── Reference tables ───────────────────────────────────────── */
+  .ref-scroll { scrollbar-width: thin; scrollbar-color: #C9D6D2 transparent; }
+  .ref-scroll::-webkit-scrollbar { width: 12px; }
+  .ref-scroll::-webkit-scrollbar-track { background: #FFFDF7; border-left: 2px solid #22312A; }
+  .ref-scroll::-webkit-scrollbar-thumb { background: #C9D6D2; border: 2px solid #FFFDF7; }
+  .ref-scroll::-webkit-scrollbar-thumb:hover { background: #A8BDB8; }
+
+  .reftable { width: 100%; border-collapse: collapse; font-size: 15px; background: #FFFDF7; }
+  .reftable th, .reftable td { border: 2px solid #22312A; text-align: left; }
+  .reftable th {
+    background: #8DB9CF; color: #22312A;
+    font-family: '"Silkscreen"', ui-monospace, monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: .05em; text-transform: uppercase;
+    padding: .5rem .75rem;
+  }
+  .reftable td { padding: .2rem .75rem .26rem; }
+  .reftable .ref-val {
+    font-family: '"VT323"', ui-monospace, monospace; font-size: 20px; line-height: 1.1;
+    color: #1B2A21; background-color: #CDE8C9; width: 7rem;
+    background-image:
+      linear-gradient(45deg, rgba(34,49,42,.09) 25%, transparent 25% 75%, rgba(34,49,42,.09) 75%),
+      linear-gradient(45deg, rgba(34,49,42,.09) 25%, transparent 25% 75%, rgba(34,49,42,.09) 75%);
+    background-size: 4px 4px; background-position: 0 0, 2px 2px;
+  }
+  .reftable tbody tr:hover td { background: #FBE45C; }
+  .reftable tbody tr:hover .ref-val { background: #FBE45C; }
+
+  .rail { scrollbar-width: none; -ms-overflow-style: none; }
+  .rail::-webkit-scrollbar { display: none; }
+
+  /* Narrow screens: let the code columns shrink instead of forcing the page wide. */
+  @media (max-width: 700px) {
+    .codetable { font-size: 18px; }
+    .codetable td { padding: .2rem .5rem .24rem; }
+    .codetable .ca, .codetable .cv { width: auto; }
+    .codetable .cc { font-size: 15px; }
+    .reftable .ref-val { width: 4.5rem; }
+  }
+
+  /* Long lists split into two ruled halves inside one frame, stacking on narrow screens. */
+  .split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split > table + table { border-left: 2px solid #22312A; background: rgba(34, 49, 42, .035); }
+  @media (max-width: 700px) {
+    .split { grid-template-columns: minmax(0, 1fr); }
+    .split > table + table { border-left: 0; border-top: 2px solid #22312A; }
+  }
+
+  /* ── One orchestrated entrance, hero only ───────────────────── */
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .rise { animation: rise .45s cubic-bezier(.22,1,.36,1) both; }
+  .rise-2 { animation-delay: .1s } .rise-3 { animation-delay: .18s }
+
+  /* ── Scroll Reveal Motion ───────────────────────────────────── */
+  .scroll-reveal { opacity: 0; transform: translateY(8px); }
+  .scroll-reveal.visible { opacity: 1; transform: none; transition: opacity 0.15s ease-out, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  
+  /* ── Typing Caret ───────────────────────────────────────────── */
+  @keyframes blink-caret { 50% { border-color: transparent; } }
+  .typing-caret { border-right: 4px solid #22312A; animation: blink-caret 0.8s step-end infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rise { animation: none; }
+    .scroll-reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
+    * { transition-duration: .01ms !important; }
+  }
+
+  @media print {
+    .no-print { display: none !important; }
+    body { background: #fff; }
+    .codetable .cv { background: #eee; background-image: none; }
+  }
+</style>
+</head>
+
+<body class="font-sans text-ink antialiased">
+
+<a href="#master" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:bg-sun focus:text-ink focus:px-4 focus:py-2 focus:text-sm focus:border-2 focus:border-ink">Skip to the codes</a>
+
+<!-- ══════════ NAV ══════════ -->
+<header class="sticky top-0 z-40 bg-paper border-b-2 border-ink">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0">
+      <img src="pete.webp" alt="" class="w-7 h-7 border-2 border-ink object-cover bg-paper2">
+      <span class="font-display font-extrabold text-[17px] tracking-tight">Harvest Moon: Friends of Mineral Town<span class="hidden sm:inline font-mono font-bold text-[10px] tracking-wider text-inksoft ml-1.5">CODES</span></span>
+    </a>
+
+    <div class="flex-1 max-w-xs hidden sm:block">
+      <div class="relative">
+        <svg class="w-4 h-4 text-inksoft absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5" stroke-linecap="round"/>
+        </svg>
+        <input id="search" type="search" placeholder="Search codes, items, or tools" autocomplete="off"
+               class="w-full pl-8 pr-2 py-2 text-sm bg-paper2 border-2 border-ink placeholder:text-inksoft/70"
+               aria-label="Search codes, items, or tools">
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button id="music-btn" class="btn shrink-0 !py-2 !px-3.5 text-[13px] bg-sun hover:bg-paper2 !gap-2" aria-label="Toggle Background Music" onclick="toggleMusic()">
+        <div class="relative flex items-center justify-center w-3 h-3 mr-0.5">
+          <div id="music-indicator" class="absolute inset-0 rounded-full bg-coral/20 animate-pulse"></div>
+          <div id="music-dot" class="w-1.5 h-1.5 rounded-full bg-coral relative z-10"></div>
+        </div>
+        <span id="music-text" class="hidden sm:inline font-mono text-[10px] font-bold tracking-wider ml-0.5">BGM OFF</span>
+        <svg id="music-icon-play" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="music-icon-pause" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+
+      <a href="https://visualboyadvance.org/" target="_blank" rel="noopener noreferrer" class="btn btn-solid shrink-0 !py-2 !px-3.5 text-[13px]" title="VisualBoyAdvance for PC, Mac & Linux">
+        <span class="hidden lg:inline">PC, Mac & Linux</span><span class="hidden sm:inline lg:hidden">Desktop</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.fastemulator.gba&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-solid shrink-0 !py-2 !px-3.5 text-[13px]" title="My Boy! for Android">
+        <span class="hidden lg:inline">Android Emulator</span><span class="hidden sm:inline lg:hidden">Android</span>
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="sm:hidden px-4 pb-3">
+    <input id="search-m" type="search" placeholder="Search codes, items, or tools" autocomplete="off"
+           class="w-full px-3 py-2 text-sm bg-paper2 border-2 border-ink placeholder:text-inksoft/70"
+           aria-label="Search codes, items, or tools">
+  </div>
+</header>
+
+<!-- ══════════ THE SHEET ══════════ -->
+<div class="relative max-w-6xl mx-auto">
+  <div class="sheet-rule hidden lg:block left-0" aria-hidden="true"></div>
+  <div class="sheet-rule hidden lg:block right-0" aria-hidden="true"></div>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section id="top" class="px-4 sm:px-6 lg:px-12 pt-10 sm:pt-14">
+    <div class="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-12 items-center">
+
+      <div>
+        <p class="rise inline-flex items-center gap-2 font-mono text-[10px] font-bold tracking-wider text-ink bg-sun border-2 border-ink px-2.5 py-1 mb-6 shadow-[3px_3px_0_#22312A]">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="0"/><path d="M8 10h3M8 14h6"/></svg>
+          GAME BOY ADVANCE
+        </p>
+
+        <h1 class="rise font-display font-medium text-[2.2rem] sm:text-[2.9rem] lg:text-[3.35rem] leading-[1.04] tracking-[-0.01em] mb-6">
+          The complete HMFOMT cheat library.
+        </h1>
+
+        <p class="rise rise-2 text-inksoft leading-[1.75] tracking-wide max-w-[46ch] mb-8 text-lg font-medium">
+          The ultimate Code Breaker archive. Just find the cheat, copy the code, and paste it to your emulator.
+        </p>
+
+        <div class="rise rise-2 mb-8">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="font-mono text-[10px] font-bold tracking-wider text-paper2 bg-coral border-2 border-ink px-2 py-0.5 shadow-[3px_3px_0_#22312A]">REQUIRED</span>
+            <span class="text-sm font-semibold">Enter these two lines before anything else</span>
+          </div>
+          <div id="hero-master"></div>
+        </div>
+
+        <div class="rise rise-3 flex flex-wrap items-center gap-3">
+          <a href="https://visualboyadvance.org/" target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+            VisualBoyAdvance (PC, Mac & Linux)
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.fastemulator.gba&hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+            My Boy! (Android)
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+          </a>
+          <a href="#master" class="btn btn-ghost">Read how to enter them</a>
+        </div>
+      </div>
+
+      <div class="rise rise-3 flex items-end justify-center lg:justify-end">
+        <img src="hero.png" width="760" height="679" fetchpriority="high" decoding="async"
+             alt="A young farmer in a blue hat holding a walking stick, with a chicken beside him on the grass"
+             class="w-[62%] sm:w-[46%] lg:w-full max-w-[420px] h-auto">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MOBILE CONTENTS RAIL ══════════ -->
+  <div class="sticky top-[118px] sm:top-16 z-30 bg-paper border-b-2 border-ink lg:hidden">
+    <div class="rail flex gap-2 overflow-x-auto px-4 py-3" id="rail"></div>
+  </div>
+
+  <!-- ══════════ BODY ══════════ -->
+  <div class="px-4 sm:px-6 lg:px-12 pt-12 sm:pt-12 pb-24">
+    <div class="lg:grid lg:grid-cols-[222px_minmax(0,1fr)] lg:gap-10">
+
+      <aside class="hidden lg:block">
+        <nav class="sticky top-24 no-print" aria-label="Contents">
+          <p class="font-mono text-[10px] font-bold tracking-wider text-inksoft mb-3 pb-2 border-b-2 border-ink">CONTENTS</p>
+          <ul id="toc"></ul>
+
+          <div class="mt-7 pt-4 border-t-2 border-ink">
+            <p class="font-mono text-[11px] leading-relaxed text-inksoft">
+              <span id="stat-lines" class="font-bold text-ink">—</span> ready-to-copy codes, from the master code down to the last item value.
+            </p>
+          </div>
+        </nav>
+      </aside>
+
+      <main id="content" class="min-w-0 space-y-16"></main>
+    </div>
+  </div>
+</div>
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="border-t-2 border-ink bg-paper py-6 mt-12">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-4 text-left">
+      <img src="items/natsume_logo.svg" alt="Chicken" class="w-10 h-10 object-contain" style="image-rendering: pixelated;">
+      <div>
+        <p class="font-display text-lg font-bold text-ink">Made with ❤️ in Mineral Town</p>
+        <p class="text-inksoft text-xs font-medium tracking-wide">Don't forget to water your crops and feed your animals before sunset!</p>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-3">
+      <a href="https://faquloh.site" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-mono text-[10px] font-bold tracking-wider text-sun bg-ink border-2 border-ink px-3 py-1.5 shadow-[2px_2px_0_#22312A] hover:-translate-y-1 hover:shadow-[2px_4px_0_#22312A] active:translate-y-[2px] active:shadow-[0_0_0_#22312A] transition-all">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        FAQULOH.SITE
+      </a>
+      <a href="#top" class="inline-flex items-center gap-2 font-mono text-[10px] font-bold tracking-wider text-ink bg-sun border-2 border-ink px-3 py-1.5 shadow-[2px_2px_0_#22312A] hover:-translate-y-1 hover:shadow-[2px_4px_0_#22312A] active:translate-y-[2px] active:shadow-[0_0_0_#22312A] transition-all">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        TOP
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"
+     class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-ink text-paper2 font-mono text-xs font-bold tracking-wider border-2 border-ink opacity-0 pointer-events-none transition-opacity duration-200"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   ICONS MAPPING
+   ═══════════════════════════════════════════════════════════════ */
+const ICONS_MAPPING = {
+  // Cooking Recipes (Fandom)
+  'Mayonnaise S': 'items_clean/recipe_mayonnaise_s.webp',
+  'Mayonnaise M': 'items_clean/recipe_mayonnaise_m.webp',
+  'Mayonnaise L': 'items_clean/recipe_mayonnaise_l.webp',
+  'Mayonnaise G': 'items_clean/recipe_mayonnaise_g.webp',
+  'Mayonnaise P': 'items_clean/recipe_mayonnaise_p.webp',
+  'Mayonnaise X': 'items_clean/recipe_mayonnaise_x.webp',
+  'X Egg': 'items_clean/recipe_x_egg.webp',
+  'Milk X': 'items_clean/recipe_milk_x.webp',
+  'Cheese X': 'items_clean/recipe_cheese_x.webp',
+  'Grape Juice': 'items_clean/recipe_grape_juice.webp',
+  'Pickles': 'items_clean/recipe_pickles.webp',
+  'Salad': 'items_clean/recipe_salad.webp',
+  'Curry Rice': 'items_clean/recipe_curry_rice.webp',
+  'Stew': 'items_clean/recipe_stew.webp',
+  'Miso Soup': 'items_clean/recipe_miso_soup.webp',
+  'Stir-Fried Vegetables': 'items_clean/recipe_stir_fry.webp',
+  'Fried Rice': 'items_clean/recipe_fried_rice.webp',
+  'Okonomiyaki': 'items_clean/recipe_savory_pancake.webp',
+  'Sandwich': 'items_clean/recipe_sandwich.webp',
+  'Fruit Juice': 'items_clean/recipe_fruit_juice.webp',
+  'Fruit Latte': 'items_clean/recipe_fruit_latte.webp',
+  'Vegetable Juice': 'items_clean/recipe_vegetable_juice.webp',
+  'Vegetable Latte': 'items_clean/recipe_vegetable_latte.webp',
+  'Mixed Juice': 'items_clean/recipe_mixed_juice.webp',
+  'Mixed Latte': 'items_clean/recipe_mixed_latte.webp',
+  'Pickled Turnip': 'items_clean/recipe_pickled_turnip.webp',
+  'French Fries': 'items_clean/recipe_french_fries.webp',
+  'Strawberry Jam': 'items_clean/recipe_strawberry_jam.webp',
+  'Strawberry Smoothie': 'items_clean/recipe_strawberry_milk.webp',
+  'Tomato Juice': 'items_clean/recipe_tomato_juice.webp',
+  'Popcorn': 'items_clean/recipe_popcorn.webp',
+  'Corn Flakes': 'items_clean/recipe_corn_flakes.webp',
+  'Roasted Corn': 'items_clean/recipe_baked_corn.webp',
+  'Pineapple Juice': 'items_clean/recipe_pineapple_juice.webp',
+  'Pumpkin Pudding': 'items_clean/recipe_pumpkin_pudding.webp',
+  'Pumpkin Stew': 'items_clean/recipe_pumpkin_stew.webp',
+  'Happy Eggplant': 'items_clean/recipe_happy_eggplant.webp',
+  'Sweet Potato': 'items_clean/recipe_sweet_potatoes.webp',
+  'Roasted Sweet Potato': 'items_clean/recipe_baked_sweet_potato.webp',
+  'Green Vegetables': 'items_clean/recipe_greens.webp',
+  'Scrambled Eggs': 'items_clean/recipe_scrambled_eggs.webp',
+  'Omelet': 'items_clean/recipe_omelet.webp',
+  'Omelet Rice': 'items_clean/recipe_omelet_rice.webp',
+  'Boiled Egg': 'items_clean/recipe_boiled_egg.webp',
+  'Pudding': 'items_clean/recipe_pudding.webp',
+  'Hot Milk': 'items_clean/recipe_hot_milk.webp',
+  'Butter': 'items_clean/recipe_butter.webp',
+  'Cheesecake': 'items_clean/recipe_cheese_cake.webp',
+  'Cheese Fondue': 'items_clean/recipe_cheese_fondue.webp',
+  'Apple Pie': 'items_clean/recipe_apple_pie.webp',
+  'Apple Jam': 'items_clean/recipe_apple_jam.webp',
+  'Apple Souffle': 'items_clean/recipe_apple_souffle.webp',
+  'Bamboo Rice': 'items_clean/recipe_bamboo_rice.webp',
+  'Grape Jam': 'items_clean/recipe_grape_jam.webp',
+  'Mushroom Rice': 'items_clean/recipe_mushroom_rice.webp',
+  'Truffle Rice': 'items_clean/recipe_truffle_rice.webp',
+  'Sushi': 'items_clean/recipe_sushi.webp',
+  'Jam Bun': 'items_clean/recipe_jam_bun.webp',
+  'Dinner Roll': 'items_clean/recipe_dinner_roll.webp',
+  'Raisin Bread': 'items_clean/recipe_raisin_bread.webp',
+  'Curry Bread': 'items_clean/recipe_curry_bread.webp',
+  'Toast': 'items_clean/recipe_toast.webp',
+  'French Toast': 'items_clean/recipe_french_toast.webp',
+  'Sashimi': 'items_clean/recipe_sashimi.webp',
+  'Grilled Fish': 'items_clean/recipe_grilled_fish.webp',
+  'Mixed Sashimi': 'items_clean/recipe_chirashi_sushi.webp',
+  'Pizza': 'items_clean/recipe_pizza.webp',
+  'Noodles': 'items_clean/recipe_noodles.webp',
+  'Curry Noodles': 'items_clean/recipe_curry_noodles.webp',
+  'Tempura Noodles': 'items_clean/recipe_tempura_noodles.webp',
+  'Fried Noodles': 'items_clean/recipe_fried_noodles.webp',
+  'Soba Noodles': 'items_clean/recipe_buckwheat_noodles.webp',
+  'Tempura Soba': 'items_clean/recipe_tempura_buckwheat_noodles.webp',
+  'Fried Soba': 'items_clean/recipe_fried_buckwheat_noodles.webp',
+  'Buckwheat Chips': 'items_clean/recipe_buckwheat_chips.webp',
+  'Tempura': 'items_clean/recipe_tempura.webp',
+  'Mountain Stew': 'items_clean/recipe_mountain_stew.webp',
+  'Moon Dumplings': 'items_clean/recipe_moon_dumpling.webp',
+  'Roasted Rice Cake': 'items_clean/recipe_roasted_rice_cake.webp',
+  'Grilled Rice Ball': 'items_clean/recipe_toasted_rice_ball.webp',
+  'Rice Porridge': 'items_clean/recipe_rice_gruel.webp',
+  'Tempura Rice': 'items_clean/recipe_tempura_rice.webp',
+  'Egg over Rice': 'items_clean/recipe_egg_over_rice.webp',
+  'Candied Sweet Potato': 'items_clean/recipe_candied_potato.webp',
+  'Potato Pancakes': 'items_clean/recipe_potato_pancakes.webp',
+  'Fish Sticks': 'items_clean/recipe_fish_sticks.webp',
+  'Cookies': 'items_clean/recipe_cookies.webp',
+  'Chocolate Cookies': 'items_clean/recipe_chocolate_cookies.webp',
+  'Ice Cream': 'items_clean/recipe_ice_cream.webp',
+  'Cake': 'items_clean/recipe_cake.webp',
+  'Chocolate Cake': 'items_clean/recipe_chocolate_cake.webp',
+  'Pancakes': 'items_clean/recipe_pancakes.webp',
+  'Relaxation Tea': 'items_clean/recipe_relaxation_tea.webp',
+  'SUGDW Apple': 'items_clean/recipe_sugdw_apple.webp',
+  'HMSGB Apple': 'items_clean/recipe_hmsgb_apple.webp',
+  'AEPFE Apple': 'items_clean/recipe_aepfe_apple.webp',
+  'Bodigizer': 'items_clean/recipe_bodigizer.webp',
+  'Bodigizer XL': 'items_clean/recipe_bodigizer_xl.webp',
+  'Turbojolt': 'items_clean/recipe_turbojolt.webp',
+  'Turbojolt XL': 'items_clean/recipe_turbojolt_xl.webp',
+  'Relaxation Tea Leaves': 'items_clean/recipe_relaxation_tea_leaves.webp',
+  'Elli Leaves': 'items_clean/recipe_elli_leaves.webp',
+
+
+  'master code': 'items_clean/mine_alexandrite.png',
+  'max gold': 'items_clean/mine_gold.png',
+  'max medals': 'items_clean/pirate_treasure.png',
+  'max earnings': 'items_clean/pirate_treasure.png',
+  'infinite stamina': 'items_clean/sell_redmagicred.png',
+  'infinite water': 'items_clean/tool_wcan_sil.png',
+  'max backpack slots': 'items_clean/boy_tool5.png',
+  'max lumber': 'items_clean/mine_sagestone.png',
+  'max chicken feed': 'items_clean/veg_corn.png',
+  'max barn animal feed': 'items_clean/grass_green.png',
+  'dog wins the festival': 'items_clean/icon_dog.png',
+  'dog affection maxed': 'items_clean/icon_dog.png',
+  'dog fully grown': 'items_clean/icon_dog.png',
+  'horse wins the festival': 'items/icon_horse.png',
+  'horse affection maxed': 'items/icon_horse.png',
+  'horse fully grown': 'items/icon_horse.png',
+  '8 chicken slots': 'items/icon_chickens.png',
+  '8 cows & 8 sheep': 'items/icon_cow.png',
+  'house at maximum level': 'items/house_villa.png',
+  'barn fully upgraded': 'items/house_farm.png',
+  'coop fully upgraded': 'items/house_farm.png',
+  'villa, beach house, and mountain cabin': 'items/house_beach.png',
+  'heart level': 'items_clean/red_heart.webp',
+  'staid (sprite)': 'items_clean/sprite_staid.webp',
+  'nappy (sprite)': 'items_clean/sprite_nappy.webp',
+  'bold (sprite)': 'items_clean/sprite_bold.webp',
+  'chef (sprite)': 'items_clean/sprite_chef.webp',
+  'aqua (sprite)': 'items_clean/sprite_aqua.webp',
+  'hoggy (sprite)': 'items_clean/sprite_hoggy.webp',
+  'timid (sprite)': 'items_clean/sprite_timid.webp',
+  'all power berries': 'items/free_apple.gif',
+  'stop the clock': 'items/grass_yellow.png',
+  'weather': 'items_clean/grass_green.png',
+  'turnip': 'items/veg_turnip.png',
+  'potato': 'items/veg_potato.png',
+  'cucumber': 'items/veg_cucumber.png',
+  'strawberry': 'items/veg_strawberry.png',
+  'cabbage': 'items/veg_cabbage.png',
+  'tomato': 'items/veg_tomato.png',
+  'corn': 'items_clean/veg_corn.png',
+  'onion': 'items/veg_onion.png',
+  'pumpkin': 'items/veg_pumpkin.png',
+  'pineapple': 'items/veg_pineapple.png',
+  'eggplant': 'items/veg_eggplant.png',
+  'carrot': 'items/veg_carrot.png',
+  'sweet potato': 'items/veg_spotato.png',
+  'spinach': 'items/veg_spinich.png',
+  'green pepper': 'items/veg_gpepper.png',
+  'apple': 'items/free_apple.gif',
+  'honey': 'items/free_honey.png',
+  'bamboo': 'items/free_bamboo.png',
+  'mushroom': 'items/free_shroom.png',
+  'truffle': 'items/free_matsutake.png',
+  'grape': 'items/free_grapes.png',
+  'fish': 'items/fish_m.gif',
+  'egg': 'items/egg_me.png',
+  'mayonnaise': 'items/food_mayomed.gif',
+  'milk': 'items/milk_me.png',
+  'cheese': 'items/cheese_me.png',
+  'wool': 'items/wool_me.png',
+  'yarn': 'items/yarn_me.png',
+  'ore': 'items/mine_copper.gif',
+  'stone': 'items/mine_junkore.png',
+  'lumber': 'items_clean/mine_sagestone.png',
+  'branch': 'items/free_bamboo.png',
+  'weed': 'items_clean/grass_green.png',
+  'flower': 'items/grass_red.png',
+  'grass': 'items_clean/grass_green.png',
+  'bracelet': 'items/gift_bracelet.png',
+  'necklace': 'items/gift_necklace.png',
+  'earrings': 'items/gift_earrings.png',
+  'brooch': 'items/gift_broach.png',
+  'gem': 'items/mine_ruby.gif',
+  'treasure': 'items_clean/pirate_treasure.png',
+  'fossil': 'items/mine_fossil.gif',
+  'dog': 'items_clean/icon_dog.png',
+  'horse': 'items/icon_horse.png',
+  'chicken': 'items/icon_chicken.png',
+  'cow': 'items/icon_cow.png',
+  'sheep': 'items/icon_sheep.png',
+  'tool': 'items/tool_hammer_nor.png',
+  'sickle': 'items/tool_sickle_nor.png',
+  'hoe': 'items/tool_hoe_nor.png',
+  'ax': 'items/tool_ax_nor.png',
+  'hammer': 'items/tool_hammer_nor.png',
+  'watering can': 'items/tool_can_nor.png',
+  'fishing rod': 'items/tool_fpole_nor.png',
+  'house': 'items/house_farm.png',
+  'upgrade': 'items/house_villa.png',
+  'backpack': 'items_clean/boy_tool5.png',
+  'money': 'items_clean/pirate_treasure.png',
+  'gold': 'items_clean/pirate_treasure.png',
+  'stamina': 'items/food_relaxtealvs.gif',
+  'medal': 'items_clean/pirate_treasure.png',
+  'water': 'items_clean/tool_wcan_sil.png',
+  'medicine': 'items/food_relaxtealvs.gif',
+  'potion': 'items/food_relaxtealvs.gif',
+  'wine': 'items/free_grapes.png',
+  'chocolate': 'items/store_choco.png',
+  'cake': 'items/food_mayog.png',
+  'cookie': 'items/food_mayosma.gif',
+  'ice cream': 'items/milk_la.png',
+  'bread': 'items/cheese_me.png',
+  'pizza': 'items/cheese_la.png',
+  'sushi': 'items/fish_l.gif',
+  'noodle': 'items/fish_s.gif',
+  'rice': 'items_clean/veg_corn.png',
+  'fry': 'items/veg_potato.png',
+  'fries': 'items/veg_potato.png',
+  'day': 'items/grass_yellow.png',
+  'year': 'items/grass_white.gif',
+  'bell': 'items/cow_title.png',
+  'brush': 'items/cow_title.png',
+  'milker': 'items/milk_la.png',
+  'shears': 'items/wool_la.png',
+  'recipe': 'items/food_relaxtealvs.gif',
+  'book': 'items/boy_tool6.png',
+  'chicken feed': 'items_clean/veg_corn.png',
+  'animal feed': 'items_clean/grass_green.png',
+  'level': 'items/mine_pinkdiamond.gif',
+  'max': 'items/mine_pinkdiamond.gif',
+  'infinite': 'items/mine_pinkdiamond.gif',
+  'master': 'items/mine_pinkdiamond.gif',
+};
+
+const EXACT_ICONS = {
+  "Relaxation Tea Leaves": "items/food_relaxtealvs.gif",
+  "Book from the Goddess": "items_gba/certificate.png",
+  "Stir-Fried Vegetables": "items_clean/recipe_stir_fry.webp",
+  "Mystrile Watering Can": "items/tool_can_mith.png",
+  "Sheep Miracle Potion": "items_gba/bodigizer.png",
+  "Roasted Sweet Potato": "items_clean/recipe_baked_sweet_potato.webp",
+  "Candied Sweet Potato": "items_clean/recipe_candied_potato.webp",
+  "Blessed Watering Can": "items/tool_can_ble.png",
+  "Mystrile Fishing Rod": "items/tool_rod_mith.png",
+  "Ancient Fish Fossil": "items/mine_fossil.gif",
+  "French Fries Recipe": "items_clean/recipe_french_fries.webp",
+  "Copper Watering Can": "items/tool_wcan_cop.png",
+  "Silver Watering Can": "items/tool_wcan_sil.png",
+  "Cursed Watering Can": "items/tool_can_cur.gif",
+  "Mythic Watering Can": "items/tool_can_sag.png",
+  "Blessed Fishing Rod": "items/tool_rod_ble.png",
+  "Elli's Dried Flower": "items_remake/pink_cat_flower.png",
+  "Green Pepper Seeds": "items_gba/green_pepper_seeds.png",
+  "Poisonous Mushroom": "items/free_pshroom.png",
+  "Queen of the Night": "items_remake/sunsweet_flower.png",
+  "Gem of the Goddess": "items/mine_gjewel.png",
+  "Plant Encyclopedia": "items_gba/certificate.png",
+  "Cow Miracle Potion": "items_gba/bodigizer.png",
+  "Copper Fishing Rod": "items/tool_fpole_cop.png",
+  "Silver Fishing Rod": "items/tool_fpole_sil.png",
+  "Cursed Fishing Rod": "items/tool_rod_cur.gif",
+  "Mythic Fishing Rod": "items/tool_rod_sag.png",
+  "Chocolate Cookies": "items_clean/recipe_chocolate_cookies.webp",
+  "Roasted Rice Cake": "items_clean/recipe_roasted_rice_cake.webp",
+  "Grilled Rice Ball": "items_clean/recipe_toasted_rice_ball.webp",
+  "Gold Watering Can": "items/tool_wcan_gol.png",
+  "Popuri's Mud Ball": "items_remake/ball.png",
+  "Strawberry Seeds": "items_gba/strawberry_seeds.png",
+  "Toy Flower Seeds": "items_gba/turnip_seeds.png",
+  "Blue Magic Grass": "items/grass_blue.png",
+  "Gem of the Kappa": "items/mine_kappa.png",
+  "Gem of the Truth": "items/mine_gtreasure.png",
+  "Green Vegetables": "items_clean/recipe_greens.webp",
+  "Gold Fishing Rod": "items/tool_fpole_gol.png",
+  "Pineapple Seeds": "items_gba/pineapple_seeds.png",
+  "Moon Drop Seeds": "items_gba/turnip_seeds.png",
+  "Moon Drop Grass": "items_remake/moondrop_flower.png",
+  "Red Magic Grass": "items/sell_redmagicred.gif",
+  "Wild Grape Wine": "items/item_bottle.gif",
+  "Buckwheat Flour": "items_remake/wheat_flour.png",
+  "Pirate Treasure": "items/pirate_treasure.gif",
+  "Animal Medicine": "items/item_bottle.gif",
+  "Vegetable Juice": "items_clean/recipe_vegetable_juice.webp",
+  "Vegetable Latte": "items_clean/recipe_vegetable_latte.webp",
+  "Pineapple Juice": "items_clean/recipe_pineapple_juice.webp",
+  "Pumpkin Pudding": "items_clean/recipe_pumpkin_pudding.webp",
+  "Tempura Noodles": "items_clean/recipe_tempura_noodles.webp",
+  "Buckwheat Chips": "items_clean/recipe_buckwheat_chips.webp",
+  "Potato Pancakes": "items_clean/recipe_potato_pancakes.webp",
+  "Mystrile Sickle": "items/tool_sickle_mith.png",
+  "Mystrile Hammer": "items/tool_hammer_mith.png",
+  "Ann's Music Box": "items_gba/basket.png",
+  "Cucumber Seeds": "items_gba/cucumber_seeds.png",
+  "Eggplant Seeds": "items_gba/eggplant_seeds.png",
+  "Pink Cat Seeds": "items_gba/turnip_seeds.png",
+  "Spa Boiled Egg": "items/egg_sp.png",
+  "Pink Cat Grass": "items_remake/pink_cat_flower.png",
+  "Orichalcum Ore": "items/mine_orich.gif",
+  "Adamantite Ore": "items/mine_adaman.gif",
+  "Teleport Stone": "items/mine_moonstone.gif",
+  "Strawberry Jam": "items_clean/recipe_strawberry_jam.webp",
+  "Pickled Turnip": "items_clean/recipe_pickled_turnip.webp",
+  "Happy Eggplant": "items_clean/recipe_happy_eggplant.webp",
+  "Scrambled Eggs": "items_clean/recipe_scrambled_eggs.webp",
+  "Chocolate Cake": "items_clean/recipe_chocolate_cake.webp",
+  "Relaxation Tea": "items_clean/recipe_relaxation_tea.webp",
+  "Moon Dumplings": "items_clean/recipe_moon_dumpling.webp",
+  "Ketchup Recipe": "items_gba/ketchup.png",
+  "Blessed Sickle": "items/tool_sickle_ble.png",
+  "Blessed Hammer": "items/tool_hammer_ble.png",
+  "Cabbage Seeds": "items_gba/cabbage_seeds.png",
+  "Pumpkin Seeds": "items_gba/pumpkin_seeds.png",
+  "Excellent Egg": "items/egg_la.png",
+  "Golden Lumber": "items_remake/gold.png",
+  "Cheese Fondue": "items_clean/recipe_cheese_fondue.webp",
+  "Apple Souffle": "items_clean/recipe_apple_souffle.webp",
+  "Mushroom Rice": "items_clean/recipe_mushroom_rice.webp",
+  "Mixed Sashimi": "items_clean/recipe_sashimi.webp",
+  "Curry Noodles": "items_clean/recipe_curry_noodles.webp",
+  "Fried Noodles": "items_clean/recipe_fried_noodles.webp",
+  "Mountain Stew": "items_clean/recipe_mountain_stew.webp",
+  "Egg over Rice": "items_clean/recipe_egg_over_rice.webp",
+  "Rice Porridge": "items_clean/recipe_rice_gruel.webp",
+  "Copper Sickle": "items/tool_sickle_cop.png",
+  "Silver Sickle": "items/tool_sickle_sil.png",
+  "Cursed Sickle": "items/tool_sickle_cur.gif",
+  "Mythic Sickle": "items/tool_sickle_sag.png",
+  "Copper Hammer": "items/tool_hammer_cop.png",
+  "Silver Hammer": "items/tool_hammer_sil.png",
+  "Cursed Hammer": "items/tool_hammer_cur.gif",
+  "Mythic Hammer": "items/tool_hammer_sag.png",
+  "Mary's Ledger": "items_gba/certificate.png",
+  "Green Pepper": "items/veg_gpepper.png",
+  "Sweet Potato": "items/veg_spotato.png",
+  "Turnip Seeds": "items_gba/turnip_seeds.png",
+  "Potato Seeds": "items_gba/potato_seeds.png",
+  "Tomato Seeds": "items_gba/tomato_seeds.png",
+  "Carrot Seeds": "items_gba/carrot_seeds.png",
+  "Mayonnaise S": "items/food_mayosma.gif",
+  "Mayonnaise M": "items/food_mayomed.gif",
+  "Mayonnaise L": "items/food_mayol.gif",
+  "Mayonnaise G": "items/food_mayog.png",
+  "Mayonnaise P": "items/food_mayop.gif",
+  "Mayonnaise X": "items/food_mayox.gif",
+  "Bamboo Shoot": "items/free_bamboo.png",
+  "Yellow Grass": "items/grass_yellow.png",
+  "Orange Grass": "items/grass_orange.png",
+  "Purple Grass": "items/grass_purple.png",
+  "Indigo Grass": "items/grass_indigo.png",
+  "Bodigizer XL": "items_gba/bodigizer_xl.png",
+  "Turbojolt XL": "items_gba/turbojolt_xl.png",
+  "Curry Powder": "items_remake/curry_powder.png",
+  "Pink Diamond": "items/mine_pinkdiamond.gif",
+  "Mythic Stone": "items/mine_sagestone.png",
+  "Blue Feather": "items_gba/blue_feather.png",
+  "Chicken Feed": "items_clean/veg_corn.png",
+  "Tomato Juice": "items_clean/recipe_tomato_juice.webp",
+  "French Fries": "items_clean/recipe_french_fries.webp",
+  "Pumpkin Stew": "items_clean/recipe_pumpkin_stew.webp",
+  "Truffle Rice": "items_clean/recipe_truffle_rice.webp",
+  "Raisin Bread": "items_clean/recipe_raisin_bread.webp",
+  "Grilled Fish": "items_clean/recipe_grilled_fish.webp",
+  "Soba Noodles": "items_clean/recipe_buckwheat_noodles.webp",
+  "Tempura Soba": "items_clean/recipe_tempura_buckwheat_noodles.webp",
+  "French Toast": "items_clean/recipe_french_toast.webp",
+  "Tempura Rice": "items_clean/recipe_tempura_rice.webp",
+  "Mystrile Hoe": "items/tool_hoe_mith.png",
+  "Mystrile Axe": "items/tool_ax_mith.png",
+  "Watering Can": "items/tool_can_nor.png",
+  "Roasted Corn": "items_remake/roasted_corn.png",
+  "Karen's Wine": "items/item_bottle.gif",
+  "Onion Seeds": "items_gba/onion_seeds.png",
+  "Grass Seeds": "items_gba/turnip_seeds.png",
+  "Magic Seeds": "items_gba/turnip_seeds.png",
+  "Green Grass": "items/grass_green.png",
+  "Black Grass": "items/grass_black.png",
+  "White Grass": "items/grass_white.gif",
+  "Grape Juice": "items_clean/recipe_grape_juice.webp",
+  "SUGDW Apple": "items_clean/recipe_sugdw_apple.webp",
+  "HMSGB Apple": "items_clean/recipe_hmsgb_apple.webp",
+  "AEPFE Apple": "items_clean/recipe_aepfe_apple.webp",
+  "Mithril Ore": "items/mine_mithril.gif",
+  "Alexandrite": "items/mine_alexandrite.gif",
+  "Facial Pack": "items_gba/facial_pack.png",
+  "Skin Lotion": "items/item_bottle.gif",
+  "Certificate": "items_gba/certificate.png",
+  "Animal Feed": "items_clean/grass_green.png",
+  "Fruit Juice": "items_clean/recipe_fruit_juice.webp",
+  "Mixed Juice": "items_clean/recipe_mixed_juice.webp",
+  "Fruit Latte": "items_clean/recipe_fruit_latte.webp",
+  "Mixed Latte": "items_clean/recipe_mixed_latte.webp",
+  "Corn Flakes": "items_clean/recipe_corn_flakes.webp",
+  "Omelet Rice": "items_clean/recipe_omelet_rice.webp",
+  "Bamboo Rice": "items_clean/recipe_bamboo_rice.webp",
+  "Dinner Roll": "items_clean/recipe_dinner_roll.webp",
+  "Curry Bread": "items_clean/recipe_curry_bread.webp",
+  "Elli Leaves": "items_clean/recipe_elli_leaves.webp",
+  "Fish Sticks": "items_clean/recipe_fish_sticks.webp",
+  "Okonomiyaki": "items_clean/recipe_savory_pancake.webp",
+  "Gold Sickle": "items/tool_sickle_gold.png",
+  "Blessed Hoe": "items/tool_hoe_ble.png",
+  "Blessed Axe": "items/tool_ax_ble.png",
+  "Gold Hammer": "items/tool_hammer_gol.png",
+  "Fishing Rod": "items/tool_fpole_nor.png",
+  "Medium Fish": "items/fish_m.gif",
+  "Strawberry": "items/veg_strawberry.png",
+  "Corn Seeds": "items_gba/corn_seeds.png",
+  "Normal Egg": "items/egg_sm.png",
+  "Wild Grape": "items/free_grapes.png",
+  "Blue Grass": "items/grass_blue.png",
+  "Toy Flower": "items_remake/toy_flower.png",
+  "Muffin Mix": "items_remake/dango_flour.png",
+  "Copper Ore": "items/mine_copper.gif",
+  "Silver Ore": "items/mine_silver.gif",
+  "Moon Stone": "items/mine_moonstone.gif",
+  "Invitation": "items_gba/certificate.png",
+  "Curry Rice": "items_clean/recipe_curry_rice.webp",
+  "Fried Rice": "items_clean/recipe_fried_rice.webp",
+  "Boiled Egg": "items_clean/recipe_boiled_egg.webp",
+  "Cheesecake": "items_clean/recipe_cheese_cake.webp",
+  "Fried Soba": "items_clean/recipe_fried_buckwheat_noodles.webp",
+  "Copper Hoe": "items/tool_hoe_cop.png",
+  "Silver Hoe": "items/tool_hoe_sil.png",
+  "Cursed Hoe": "items/tool_hoe_cur.gif",
+  "Mythic Hoe": "items/tool_hoe_sag.png",
+  "Copper Axe": "items/tool_ax_cop.png",
+  "Silver Axe": "items/tool_ax_sil.png",
+  "Cursed Axe": "items/tool_ax_cur.gif",
+  "Mythic Axe": "items/tool_ax_sag.png",
+  "Small Fish": "items/fish_s.gif",
+  "Large Fish": "items/fish_l.gif",
+  "Pineapple": "items/veg_pineapple.png",
+  "Red Grass": "items/grass_red.png",
+  "Bodigizer": "items_gba/bodigizer.png",
+  "Turbojolt": "items_gba/turbojolt.png",
+  "Rice Ball": "items_remake/onigiri.png",
+  "Rice Cake": "items_clean/recipe_roasted_rice_cake.webp",
+  "Chocolate": "items/store_choco.png",
+  "Sand Rose": "items/mine_sandrose.gif",
+  "Empty Can": "items/mine_junkore.png",
+  "Fish Bone": "items/mine_fossil.gif",
+  "Sunscreen": "items/item_bottle.gif",
+  "Pedometer": "items_gba/pedometer.png",
+  "Miso Soup": "items_clean/recipe_miso_soup.webp",
+  "Apple Pie": "items_clean/recipe_apple_pie.webp",
+  "Apple Jam": "items_clean/recipe_apple_jam.webp",
+  "Grape Jam": "items_clean/recipe_grape_jam.webp",
+  "Ice Cream": "items_clean/recipe_ice_cream.webp",
+  "Cucumber": "items/veg_cucumber.png",
+  "Eggplant": "items/veg_eggplant.png",
+  "Good Egg": "items/egg_me.png",
+  "Gold Egg": "items/egg_go.png",
+  "Cheese S": "items/cheese_sm.png",
+  "Cheese M": "items/cheese_me.png",
+  "Cheese L": "items/cheese_la.png",
+  "Cheese G": "items/cheese_go.png",
+  "Cheese P": "items/cheese_p.png",
+  "Cheese X": "items/cheese_x.png",
+  "Mushroom": "items/free_shroom.png",
+  "Junk Ore": "items/mine_junkore.png",
+  "Gold Ore": "items/mine_gold.gif",
+  "Fluorite": "items/mine_fireflystone.gif",
+  "Amethyst": "items/mine_amethyst.gif",
+  "Bracelet": "items/gift_bracelet.png",
+  "Necklace": "items/gift_necklace.png",
+  "Earrings": "items/gift_earrings.png",
+  "Band-Aid": "items_gba/facial_pack.png",
+  "Album 10": "items_gba/certificate.png",
+  "Sandwich": "items_clean/recipe_sandwich.webp",
+  "Hot Milk": "items_clean/recipe_hot_milk.webp",
+  "Pancakes": "items_clean/recipe_pancakes.webp",
+  "Gold Hoe": "items/tool_hoe_gol.png",
+  "Gold Axe": "items/tool_ax_gol.png",
+  "Cabbage": "items/veg_cabbage.png",
+  "Pumpkin": "items/veg_pumpkin.png",
+  "Spinach": "items/veg_spinich.png",
+  "Truffle": "items_remake/mushroom.png",
+  "Ketchup": "items_gba/ketchup.png",
+  "Diamond": "items/mine_diamond.gif",
+  "Emerald": "items/mine_emerald.gif",
+  "Peridot": "items/mine_peridot.gif",
+  "Perfume": "items/item_bottle.gif",
+  "Frisbee": "items/frisbee_title.png",
+  "Album 1": "items_gba/certificate.png",
+  "Album 2": "items_gba/certificate.png",
+  "Album 3": "items_gba/certificate.png",
+  "Album 4": "items_gba/certificate.png",
+  "Album 5": "items_gba/certificate.png",
+  "Album 6": "items_gba/certificate.png",
+  "Album 7": "items_gba/certificate.png",
+  "Album 8": "items_gba/certificate.png",
+  "Album 9": "items_gba/certificate.png",
+  "Pickles": "items_clean/recipe_pickles.webp",
+  "Popcorn": "items_clean/recipe_popcorn.webp",
+  "Jam Bun": "items_clean/recipe_jam_bun.webp",
+  "Sashimi": "items_clean/recipe_sashimi.webp",
+  "Noodles": "items_clean/recipe_noodles.webp",
+  "Cookies": "items_clean/recipe_cookies.webp",
+  "Tempura": "items_clean/recipe_tempura.webp",
+  "Pudding": "items_clean/recipe_pudding.webp",
+  "Turnip": "items/veg_turnip.png",
+  "Potato": "items/veg_potato.png",
+  "Tomato": "items/veg_tomato.png",
+  "Carrot": "items/veg_carrot.png",
+  "Milk S": "items/milk_sm.png",
+  "Milk M": "items/milk_me.png",
+  "Milk L": "items/milk_la.png",
+  "Milk G": "items/milk_go.png",
+  "Milk P": "items/milk_p.png",
+  "Milk X": "items/milk_x.png",
+  "Wool S": "items/wool_sm.png",
+  "Wool M": "items/wool_me.png",
+  "Wool L": "items/wool_la.png",
+  "Wool G": "items/wool_go.png",
+  "Wool P": "items/wool_p.png",
+  "Wool X": "items/wool_x.png",
+  "Yarn S": "items/yarn_sm.png",
+  "Yarn M": "items/yarn_me.png",
+  "Yarn L": "items/yarn_la.png",
+  "Yarn G": "items/yarn_go.png",
+  "Yarn P": "items/yarn_p.png",
+  "Yarn X": "items/yarn_x.png",
+  "Flower": "items_remake/toy_flower.png",
+  "Brooch": "items/gift_broach.png",
+  "Branch": "items_remake/branch.png",
+  "Lumber": "items_remake/branch.png",
+  "Milker": "items_gba/milker.png",
+  "Shears": "items_gba/shears.png",
+  "Omelet": "items_clean/recipe_omelet.webp",
+  "Butter": "items_clean/recipe_butter.webp",
+  "Sickle": "items/tool_sickle_nor.png",
+  "Hammer": "items/tool_hammer_nor.png",
+  "Onion": "items/veg_onion.png",
+  "P Egg": "items/egg_p.png",
+  "X Egg": "items/egg_x.png",
+  "Apple": "items/free_apple.gif",
+  "Honey": "items/free_honey.png",
+  "Bread": "items_gba/bread.png",
+  "Topaz": "items/mine_topaz.gif",
+  "Agate": "items/mine_agate.gif",
+  "Weeds": "items/grass_yellow.png",
+  "Stone": "items_remake/material_stone.png",
+  "Photo": "items_gba/certificate.png",
+  "Dress": "items_remake/doctors_therapy_merch.png",
+  "Brush": "items_gba/brush.png",
+  "Salad": "items_clean/recipe_salad.webp",
+  "Sushi": "items_clean/recipe_sushi.webp",
+  "Pizza": "items_clean/recipe_pizza.webp",
+  "Toast": "items_clean/recipe_toast.webp",
+  "Corn": "items/veg_corn.png",
+  "Wine": "items/item_bottle.gif",
+  "Ruby": "items/mine_ruby.gif",
+  "Ball": "items_remake/ball.png",
+  "Boot": "items/mine_junkore.png",
+  "Bell": "items/icon_cow.png",
+  "Stew": "items_clean/recipe_stew.webp",
+  "Cake": "items_clean/recipe_cake.webp",
+  "Oil": "items_remake/oil.png",
+  "Hoe": "items/tool_hoe_nor.png",
+  "Axe": "items/tool_ax_nor.png",
+};
+
+const SEASON_ICONS = {
+  'spring': 'items/grass_green.png',
+  'summer': 'items/grass_yellow.png',
+  'fall': 'items/grass_orange.png',
+  'winter': 'items/grass_white.gif'
+};
+
+const KEYWORD_ICONS = [
+  ['master', 'items/mine_pinkdiamond.gif'],
+  ['cheat', 'items/mine_gold.gif'],
+  ['core', 'items/mine_gold.gif'],
+  ['livestock', 'items/icon_cow.png'],
+  ['animals', 'items/icon_cow.png'],
+  ['attention', 'items/icon_dog.png'],
+  ['farm', 'items/house_farm.png'],
+  ['build', 'items/house_farm.png'],
+  ['affection', 'items/gift_necklace.png'],
+  ['marriage', 'items/gift_necklace.png'],
+  ['power berry', 'items/powerberry.gif'],
+  ['weather', 'items/grass_blue.png'],
+  ['date', 'items/mine_moonstone.gif'],
+  ['tool', 'items/tool_hoe_nor.png'],
+  ['item', 'items/veg_turnip.png'],
+  ['cooking', 'items_clean/recipe_salad.webp'],
+  ['recipe', 'items_clean/recipe_salad.webp']
+];
+
+function getIcon(name) {
+  const n = name.toLowerCase();
+  const img = (src, alt) => {
+    const mode = src.includes('items_remake/') ? 'auto' : 'pixelated';
+    return `<img src="${src}" alt="${alt}" class="w-full h-full object-contain" style="image-rendering: ${mode};">`;
+  };
+
+  const season = n.match(/^(spring|summer|fall|winter)\s*\d*$/);
+  if (season) return img(SEASON_ICONS[season[1]], season[1]);
+
+  if (EXACT_ICONS[name]) return img(EXACT_ICONS[name], name);
+
+  const chars = ['popuri', 'karen', 'mary', 'elli', 'ann', 'goddess'];
+  for (const c of chars) {
+    if (n.includes(c)) return img(`${c}.gif`, c);
+  }
+
+  // existing recipe/generic substring map (case-insensitive now)
+  for (const [key, iconPath] of Object.entries(ICONS_MAPPING)) {
+    if (n.includes(key.toLowerCase())) return img(iconPath, key);
+  }
+
+  if (n.includes('house') || n.includes('upgrade')) return img('items/house_farm.png', 'house');
+
+  for (const [kw, iconPath] of KEYWORD_ICONS) {
+    if (n.includes(kw)) return img(iconPath, kw);
+  }
+
+  return img('items/boy_tool1.png', '');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   DATA
+   ═══════════════════════════════════════════════════════════════ */
+
+const MASTER = ['0000E882 000A', '100D1BF8 0007'];
+
+/* Weather: the value goes into the 320025E0 code */
+const WEATHER = [['0000','Sunny'],['0001','Rain'],['0002','Snow'],['0003','Storm'],['0004','Blizzard']];
+const WEATHER_NOTE = {
+  '0000': 'Sunny — crops still need watering',
+  '0001': 'Rain — waters your crops for you',
+  '0002': 'Snow — crops stop growing',
+  '0003': 'Storm — you cannot leave the house',
+  '0004': 'Blizzard — you cannot leave the house'
+};
+
+/* accent = the category's colour chip, used for navigation */
+const COOKING_RECIPES_DATA = [
+  {
+    "name": "Mayonnaise (S)",
+    "iconKey": "Mayonnaise S",
+    "req_ingredients": "Regular Quality Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (M)",
+    "iconKey": "Mayonnaise M",
+    "req_ingredients": "Good Quality Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (L)",
+    "iconKey": "Mayonnaise L",
+    "req_ingredients": "High Quality Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (G)",
+    "iconKey": "Mayonnaise G",
+    "req_ingredients": "Golden Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (P)",
+    "iconKey": "Mayonnaise P",
+    "req_ingredients": "P Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (X)",
+    "iconKey": "Mayonnaise X",
+    "req_ingredients": "X Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (X)",
+    "iconKey": "Mayonnaise X",
+    "req_ingredients": "Mayonnaise (S), Mayonnaise (M), Mayonnaise (L), Mayonnaise (G), Mayonnaise (P)",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "X Egg",
+    "iconKey": "X Egg",
+    "req_ingredients": "Regular Quality Egg, Good Quality Egg, High Quality Egg, Golden Egg, P Egg",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Milk (X)",
+    "iconKey": "Milk X",
+    "req_ingredients": "Milk (S), Milk (M), Milk (L), Milk (G), Milk (P)",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Cheese (X)",
+    "iconKey": "Cheese X",
+    "req_ingredients": "Cheese (S), Cheese (M), Cheese (L), Cheese (G), Cheese (P)",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Wild Grape Juice",
+    "iconKey": "Grape Juice",
+    "req_ingredients": "Wild Grape, Wine, Purple Grass",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Pickles",
+    "iconKey": "Pickles",
+    "req_ingredients": "Cucumber",
+    "req_utensils": "-",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Salad",
+    "iconKey": "Salad",
+    "req_ingredients": "One or more of: Cucumber Cabbage Tomato Carrot",
+    "req_utensils": "Knife",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Curry Rice",
+    "iconKey": "Curry Rice",
+    "req_ingredients": "Rice Balls, Curry Powder",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Stew",
+    "iconKey": "Stew",
+    "req_ingredients": "Flour, any Milk",
+    "req_utensils": "Pot",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Miso Soup",
+    "iconKey": "Miso Soup",
+    "req_ingredients": "One or more of: Bamboo Shoot Mushroom Truffle Turnip Corn Carrot Eggplant Onion Tomato",
+    "req_utensils": "Pot",
+    "req_seasoning": "Miso, Salt"
+  },
+  {
+    "name": "Stir Fry",
+    "iconKey": "Stir-Fried Vegetables",
+    "req_ingredients": "Oil, Cabbage",
+    "req_utensils": "Knife, Frying Pan",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Fried Rice",
+    "iconKey": "Fried Rice",
+    "req_ingredients": "Rice Balls, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Savory Pancake",
+    "iconKey": "Okonomiyaki",
+    "req_ingredients": "Cabbage, Oil, Flour, Egg",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Sandwich",
+    "iconKey": "Sandwich",
+    "req_ingredients": "Bread, one or more of: Boiled Egg Cucumber Tomato",
+    "req_utensils": "Knife",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Fruit Juice",
+    "iconKey": "Fruit Juice",
+    "req_ingredients": "One or more of: Any Apple Strawberry Pineapple Wild Grapes",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Fruit Latte",
+    "iconKey": "Fruit Latte",
+    "req_ingredients": "Any Milk, one or more of: Any Apple Strawberry Pineapple Wild Grapes",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Vegetable Juice",
+    "iconKey": "Vegetable Juice",
+    "req_ingredients": "One or more of: Cucumber Cabbage Carrot Onion Spinach",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Vegetable Latte",
+    "iconKey": "Vegetable Latte",
+    "req_ingredients": "Any Milk, one or more of: Cucumber Cabbage Carrot Turnip Onion Green Pepper Spinach Tomato",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Mixed Juice",
+    "iconKey": "Mixed Juice",
+    "req_ingredients": "Vegetable Juice, Fruit Juice",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Mixed Latte",
+    "iconKey": "Mixed Latte",
+    "req_ingredients": "Mixed Juice, any Milk",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Pickled Turnip",
+    "iconKey": "Pickled Turnip",
+    "req_ingredients": "Turnips",
+    "req_utensils": "Knife",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "French Fries",
+    "iconKey": "French Fries",
+    "req_ingredients": "Potato, Oil",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Strawberry Jam",
+    "iconKey": "Strawberry Jam",
+    "req_ingredients": "Strawberry",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Strawberry Milk",
+    "iconKey": "Strawberry Smoothie",
+    "req_ingredients": "Strawberry, any Milk",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Tomato Juice",
+    "iconKey": "Tomato Juice",
+    "req_ingredients": "Tomato",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Popcorn",
+    "iconKey": "Popcorn",
+    "req_ingredients": "Corn, Butter",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Corn Flakes",
+    "iconKey": "Corn Flakes",
+    "req_ingredients": "Corn",
+    "req_utensils": "Oven,&#160; Rolling Pin",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Baked Corn",
+    "iconKey": "Roasted Corn",
+    "req_ingredients": "Corn",
+    "req_utensils": "Oven",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Pineapple Juice",
+    "iconKey": "Pineapple Juice",
+    "req_ingredients": "Pineapple",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Pumpkin Pudding",
+    "iconKey": "Pumpkin Pudding",
+    "req_ingredients": "Any Egg, any Milk, Pumpkin",
+    "req_utensils": "Pot, Oven",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Pumpkin Stew",
+    "iconKey": "Pumpkin Stew",
+    "req_ingredients": "Pumpkin",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar, Soy Sauce"
+  },
+  {
+    "name": "Happy Eggplant",
+    "iconKey": "Happy Eggplant",
+    "req_ingredients": "Eggplant",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "Sugar, Soy Sauce, Miso"
+  },
+  {
+    "name": "Sweet Potatoes",
+    "iconKey": "Sweet Potato",
+    "req_ingredients": "Butter, any Egg, Sweet Potato",
+    "req_utensils": "Pot, Oven",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Baked Sweet Potato",
+    "iconKey": "Roasted Sweet Potato",
+    "req_ingredients": "Sweet Potato",
+    "req_utensils": "Oven",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Greens",
+    "iconKey": "Green Vegetables",
+    "req_ingredients": "Spinach",
+    "req_utensils": "Pot",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Scrambled Eggs",
+    "iconKey": "Scrambled Eggs",
+    "req_ingredients": "Any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Omelet",
+    "iconKey": "Omelet",
+    "req_ingredients": "Any Egg, any Milk, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Omelet Rice",
+    "iconKey": "Omelet Rice",
+    "req_ingredients": "Any Egg, any Milk, Oil, Rice Ball",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Boiled Egg",
+    "iconKey": "Boiled Egg",
+    "req_ingredients": "Egg",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Pudding",
+    "iconKey": "Pudding",
+    "req_ingredients": "Any Egg, any Milk",
+    "req_utensils": "Pot, Oven",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Hot Milk",
+    "iconKey": "Hot Milk",
+    "req_ingredients": "Any Milk",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Butter",
+    "iconKey": "Butter",
+    "req_ingredients": "Any Milk",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Cheese Cake",
+    "iconKey": "Cheesecake",
+    "req_ingredients": "Any Cheese, any Egg, any Milk",
+    "req_utensils": "Pot, Oven, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Cheese Fondue",
+    "iconKey": "Cheese Fondue",
+    "req_ingredients": "Cheese, Bread",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Apple Pie",
+    "iconKey": "Apple Pie",
+    "req_ingredients": "Any Apple, any Egg, Butter, Flour",
+    "req_utensils": "Pot, Oven, Knife, Rolling Pin",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Apple Jam",
+    "iconKey": "Apple Jam",
+    "req_ingredients": "Any Apple",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Apple Souffle",
+    "iconKey": "Apple Souffle",
+    "req_ingredients": "Any Apple",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Bamboo Rice",
+    "iconKey": "Bamboo Rice",
+    "req_ingredients": "Bamboo Shoot, Rice Ball",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Grape Jam",
+    "iconKey": "Grape Jam",
+    "req_ingredients": "Wild Grape",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Grape Juice",
+    "iconKey": "Grape Juice",
+    "req_ingredients": "Wild Grape",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Mushroom Rice",
+    "iconKey": "Mushroom Rice",
+    "req_ingredients": "Mushroom, Rice Ball",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Truffle Rice",
+    "iconKey": "Truffle Rice",
+    "req_ingredients": "Truffle, Rice Ball",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Sushi",
+    "iconKey": "Sushi",
+    "req_ingredients": "Sashimi, Rice Ball",
+    "req_utensils": "-",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Jam Bun",
+    "iconKey": "Jam Bun",
+    "req_ingredients": "Bread, any Jam",
+    "req_utensils": "-",
+    "req_seasoning": "Sugar, Salt"
+  },
+  {
+    "name": "Dinner Roll",
+    "iconKey": "Dinner Roll",
+    "req_ingredients": "Bread, Butter",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Raisin Bread",
+    "iconKey": "Raisin Bread",
+    "req_ingredients": "Bread, Wild Grapes",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Curry Bread",
+    "iconKey": "Curry Bread",
+    "req_ingredients": "Bread, Curry Powder, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Toast",
+    "iconKey": "Toast",
+    "req_ingredients": "Bread",
+    "req_utensils": "Oven",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "French Toast",
+    "iconKey": "French Toast",
+    "req_ingredients": "Bread, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Sashimi",
+    "iconKey": "Sashimi",
+    "req_ingredients": "Medium Fish or Large Fish",
+    "req_utensils": "Knife",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Grilled Fish",
+    "iconKey": "Grilled Fish",
+    "req_ingredients": "Medium Fish, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Chirashi Sushi",
+    "iconKey": "Mixed Sashimi",
+    "req_ingredients": "Scrambled Eggs, Sashimi, Rice Ball",
+    "req_utensils": "Knife",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Pizza",
+    "iconKey": "Pizza",
+    "req_ingredients": "Cheese, Flour, Ketchup, Mushroom, Onion, Tomato",
+    "req_utensils": "Oven, Rolling Pin",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Noodles",
+    "iconKey": "Noodles",
+    "req_ingredients": "Flour",
+    "req_utensils": "Pot, Rolling Pin, Knife",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Curry Noodles",
+    "iconKey": "Curry Noodles",
+    "req_ingredients": "Noodles, Curry Powder",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Tempura Noodles",
+    "iconKey": "Tempura Noodles",
+    "req_ingredients": "Noodles, Tempura",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Fried Noodles",
+    "iconKey": "Fried Noodles",
+    "req_ingredients": "Noodles, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Buckwheat Noodles",
+    "iconKey": "Soba Noodles",
+    "req_ingredients": "Buckwheat Flour",
+    "req_utensils": "Pot, Knife, Rolling Pin",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Tempura Buckwheat Noodles",
+    "iconKey": "Tempura Soba",
+    "req_ingredients": "Tempura, Buckwheat Noodles",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Fried Buckwheat Noodles",
+    "iconKey": "Fried Soba",
+    "req_ingredients": "Buckwheat Noodles, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "Salt, Vinegar, Soy Sauce"
+  },
+  {
+    "name": "Buckwheat Chips",
+    "iconKey": "Buckwheat Chips",
+    "req_ingredients": "Buckwheat Flour",
+    "req_utensils": "Pot, Rolling Pin",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Tempura",
+    "iconKey": "Tempura",
+    "req_ingredients": "Flour, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Mountain Stew",
+    "iconKey": "Mountain Stew",
+    "req_ingredients": "Carrot, Mushroom, Bamboo Shoot",
+    "req_utensils": "Pot, Knife",
+    "req_seasoning": "Sugar, Soy Sauce"
+  },
+  {
+    "name": "Moon Dumpling",
+    "iconKey": "Moon Dumplings",
+    "req_ingredients": "Dumpling Powder",
+    "req_utensils": "-",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Roasted Rice Cake",
+    "iconKey": "Roasted Rice Cake",
+    "req_ingredients": "Rice Cake",
+    "req_utensils": "Oven",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Toasted Rice Ball",
+    "iconKey": "Grilled Rice Ball",
+    "req_ingredients": "Rice Ball",
+    "req_utensils": "Oven",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Rice Gruel",
+    "iconKey": "Rice Porridge",
+    "req_ingredients": "Rice Ball",
+    "req_utensils": "Pot",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Tempura Rice",
+    "iconKey": "Tempura Rice",
+    "req_ingredients": "Rice Ball, Tempura",
+    "req_utensils": "-",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Egg Over Rice",
+    "iconKey": "Egg over Rice",
+    "req_ingredients": "Any Egg, Rice Ball",
+    "req_utensils": "Pot",
+    "req_seasoning": "Salt, Soy Sauce"
+  },
+  {
+    "name": "Candied Potato",
+    "iconKey": "Candied Sweet Potato",
+    "req_ingredients": "Sweet Potato, Honey",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Potato Pancakes",
+    "iconKey": "Potato Pancakes",
+    "req_ingredients": "Potato, Onion, any Egg, Oil, Flour",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Fish Sticks",
+    "iconKey": "Fish Sticks",
+    "req_ingredients": "Medium Fish",
+    "req_utensils": "Mixer",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Cookies",
+    "iconKey": "Cookies",
+    "req_ingredients": "Flour, any Egg, Butter",
+    "req_utensils": "Oven, Rolling Pin",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Chocolate Cookies",
+    "iconKey": "Chocolate Cookies",
+    "req_ingredients": "Flour, any Egg, Butter, Chocolate",
+    "req_utensils": "Oven, Rolling Pin",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Ice Cream",
+    "iconKey": "Ice Cream",
+    "req_ingredients": "Any Milk, any Egg",
+    "req_utensils": "Pot, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Cake",
+    "iconKey": "Cake",
+    "req_ingredients": "Butter, Flour, Egg",
+    "req_utensils": "Oven, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Chocolate Cake",
+    "iconKey": "Chocolate Cake",
+    "req_ingredients": "Butter, Flour, any Egg, Chocolate",
+    "req_utensils": "Oven, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Pancakes",
+    "iconKey": "Pancakes",
+    "req_ingredients": "Flour, Oil, any Egg, any Milk, Honey, Butter",
+    "req_utensils": "Frying Pan, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Relaxation Tea",
+    "iconKey": "Relaxation Tea",
+    "req_ingredients": "Relaxation Tea Leaves",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "SUGDW Apple",
+    "iconKey": "SUGDW Apple",
+    "req_ingredients": "Apple, HMSGB Apple, AEPFE Apple",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "HMSGB Apple",
+    "iconKey": "HMSGB Apple",
+    "req_ingredients": "Apple, SUGDW Apple, AEPFE Apple",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "AEPFE Apple",
+    "iconKey": "AEPFE Apple",
+    "req_ingredients": "Apple, SUGDW Apple, HMSGB Apple",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Bodigizer",
+    "iconKey": "Bodigizer",
+    "req_ingredients": "Honey, Orange Grass, Black Grass, Red Magic Flower",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Bodigizer XL",
+    "iconKey": "Bodigizer XL",
+    "req_ingredients": "Bodigizer, Blue Grass",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Turbojolt",
+    "iconKey": "Turbojolt",
+    "req_ingredients": "Honey, Orange Grass, White Grass, Red Magic Flower",
+    "req_utensils": "Pot",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Turbojolt XL",
+    "iconKey": "Turbojolt XL",
+    "req_ingredients": "Turbojolt, Green Grass",
+    "req_utensils": "Mixer",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Relaxation Tea Leaves",
+    "iconKey": "Relaxation Tea Leaves",
+    "req_ingredients": "Red Grass, Orange Grass, Yellow Grass, Green Grass, Purple Grass, Blue Grass, Indigo Grass, Weed",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "Elli Leaves",
+    "iconKey": "Elli Leaves",
+    "req_ingredients": "Bodigizer XL, Turbojolt XL, all 6 burnt dishes",
+    "req_utensils": "Frying Pan, Pot, Oven, Knife",
+    "req_seasoning": "Sugar, Salt, Vinegar, Soy Sauce, Miso"
+  },
+  {
+    "name": "The Spring Sun",
+    "iconKey": "The Spring Sun",
+    "req_ingredients": "Blue Magic Flower, Red Magic Flower, Moon Drop Flower, Toy Flower, Pink Cat Flower",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "The Summer Sun",
+    "iconKey": "The Summer Sun",
+    "req_ingredients": "All 3 fish sizes, Fossil of Ancient Fish, Pirate Treasure",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "The Autumn Sun",
+    "iconKey": "The Autumn Sun",
+    "req_ingredients": "Milk (X), Cheese (X), X Egg, Mayonnaise (X), Wool (X), Yarn (X)",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  },
+  {
+    "name": "The Winter Sun",
+    "iconKey": "The Winter Sun",
+    "req_ingredients": "Alexandrite, Diamond, Pink Diamond, Emerald, Moonstone, Mythic Stone, Sand Rose",
+    "req_utensils": "-",
+    "req_seasoning": "-"
+  }
+];
+
+const SECTIONS = [
+  {
+    id: 'master', num: '00', title: 'Master Code', short: 'Master', accent: 'sun',
+    lead: 'These two lines are not a cheat, they are the key. Your emulator needs both of them active before any other code can write to the game\u2019s memory.',
+    tone: 'warn',
+    groups: [
+      { name: 'Master Code', lines: MASTER, note: 'Enter this first, before any other code.' }
+    ]
+  },
+
+  {
+    id: 'utama', num: '01', title: 'Core cheats', short: 'Core', accent: 'leaf',
+    lead: 'Money, feed, stamina, and backpack space. These are the ones that stop the first season feeling like a grind.',
+    panel: 'mascot',
+    groups: [
+      { name: 'Max Gold', lines: ['82004080 E0FF', '82004082 05F5'], note: 'Your balance jumps to the cap as soon as both lines are active.' },
+      { name: 'Max Medals', lines: ['82005220 9BFF'], note: 'Medals for the Sprite Casino prize counter.' },
+      { name: 'Max Earnings', lines: ['82004180 FFFF', '82004182 FFFF'], note: 'Total earnings across the whole save. It affects your final ranking.' },
+      { name: 'Infinite Stamina', lines: ['320041F5 004B', '320041F6 002A'], note: 'Stamina stays full, so you can keep working past midnight.' },
+      { name: 'Infinite Water', lines: ['320041F7 0080'], note: 'Your watering can never runs dry, so no trips back to the pond.' },
+      { name: 'Max Backpack Slots', lines: ['32004210 0008'], note: 'The backpack gets its maximum slot count.' },
+      { name: 'Max Lumber', lines: ['820025FC 03E7'], note: 'Lumber fills up, enough for every building upgrade.' },
+      { name: 'Max Chicken Feed', lines: ['820029E8 FFCF'], note: 'Chicken feed topped off in the coop.' },
+      { name: 'Max Barn Animal Feed', lines: ['82002BC8 FFCF'], note: 'Cow and sheep feed topped off in the barn.' }
+    ]
+  },
+
+  {
+    id: 'hewan', num: '02', title: 'Animals & livestock', short: 'Animals', accent: 'sky',
+    lead: 'Dog, horse, chickens, cows, and sheep. The livestock codes write straight into each animal slot, so the order of the lines matters.',
+    groups: [
+      { name: 'Dog wins the festival', lines: ['82004260 FC00'], note: 'Your dog takes first place at the Dog Festival automatically.' },
+      { name: 'Dog affection maxed', lines: ['82004262 FFFF'], note: 'The dog\u2019s heart fills up right away.' },
+      { name: 'Dog fully grown', lines: ['82004264 003F'], note: 'The dog grows up instantly and can come along on walks.' },
+      { name: 'Horse wins the festival', lines: ['82002618 FF00'], note: 'Your horse takes first place at the Horse Festival automatically.' },
+      { name: 'Horse affection maxed', lines: ['8200261A FFFF'], note: 'The horse\u2019s heart fills up right away.' },
+      { name: 'Horse fully grown', lines: ['8200261C 003F'], note: 'The horse is ready to ride.' },
+      {
+        name: '8 chicken slots', lines: [
+          '82002A1C FCFF','82002A1E FFFF','82002A20 003F',
+          '82002A4C FCFF','82002A4E FFFF','82002A50 003F',
+          '82002A7C FCFF','82002A7E FFFF','82002A80 003F',
+          '82002AAC FCFF','82002AAE FFFF','82002AB0 003F',
+          '82002ADC FCFF','82002ADE FFFF','82002AE0 003F',
+          '82002B0C FCFF','82002B0E FFFF','82002B10 003F',
+          '82002B3C FCFF','82002B3E FFFF','82002B40 003F',
+          '82002B6C FCFF','82002B6E FFFF','82002B70 003F'
+        ],
+        note: 'Each chicken uses three consecutive lines: FCFF, FFFF, then 003F.'
+      },
+      {
+        name: '8 cows & 8 sheep', lines: [
+          '82002C10 FCFF','82002C12 FFFF','82002C14 003F',
+          '82002C4C FCFF','82002C4E FFFF','82002C50 003F',
+          '82002C88 FCFF','82002C8A FFFF','82002C8C 003F',
+          '82002CC4 FCFF','82002CC6 FFFF','82002CC8 003F',
+          '82002D00 FCFF','82002D02 FFFF','82002D04 003F',
+          '82002D3C FCFF','82002D3E FFFF','82002D40 003F',
+          '82002D78 FCFF','82002D7A FFFF','82002D7C 003F',
+          '82002DB4 FCFF','82002DB6 FFFF','82002DB8 003F',
+          '82002DF0 FCFF','82002DF2 FFFF','82002DF4 003F',
+          '82002E2C FCFF','82002E2E FFFF','82002E30 003F',
+          '82002E68 FCFF','82002E6A FFFF','82002E6C 003F',
+          '82002EA4 FCFF','82002EA6 FFFF','82002EA8 003F',
+          '82002EE0 FCFF','82002EE2 FFFF','82002EE4 003F',
+          '82002F1C FCFF','82002F1E FFFF','82002F20 003F',
+          '82002F58 FCFF','82002F5A FFFF','82002F5C 003F',
+          '82002F94 FCFF','82002F96 FFFF','82002F98 003F'
+        ],
+        note: 'The first sixteen blocks are cows, the rest are sheep. Every block follows the same pattern as the chickens.'
+      }
+    ]
+  },
+
+  {
+    id: 'rumah', num: '03', title: 'Farm & buildings', short: 'Farm', accent: 'coral',
+    lead: 'Upgrade the house and the rest of your property without waiting on the carpenter or gathering materials first.',
+    groups: [
+      { name: 'House at maximum level', lines: ['820027CC 009A','820027CD FF9A','820027CF FF00','820027D0 FFFF','820027D1 FFFF'], note: 'The house jumps straight to its largest version, kitchen and bedroom included.' },
+      { name: 'Barn fully upgraded', lines: ['82002BC8 FF01'], note: 'The cow barn goes to maximum size.' },
+      { name: 'Coop fully upgraded', lines: ['820029E8 FFFF'], note: 'The chicken coop goes to maximum size.' },
+      { name: 'Villa, beach house, and mountain cabin', lines: ['820025D8 000F'], note: 'Unlocks all three properties at once.' }
+    ]
+  },
+
+  {
+    id: 'hati', num: '04', title: 'Affection & marriage', short: 'Affection', accent: 'blush',
+    lead: 'Red hearts for every candidate, the Harvest Goddess included. The proposal codes need affection already raised, so do not swap the order of the lines.',
+    groups: [
+      { name: 'Popuri', lines: ['32004359 00FF','32004358 00FF','3200435A FFFF'], note: 'Red heart, then the proposal is accepted.' },
+      { name: 'Mary', lines: ['32004415 00FF','32004414 00FF','32004416 FFFF'], note: 'Red heart, then the proposal is accepted.' },
+      { name: 'Karen', lines: ['320044A5 00FF','320044A4 00FF','320044A6 FFFF'], note: 'Red heart, then the proposal is accepted.' },
+      { name: 'Elli', lines: ['320044D1 00FF','320044D0 00FF','320044D2 FFFF'], note: 'Red heart, then the proposal is accepted.' },
+      { name: 'Ann', lines: ['32004525 00FF','32004524 00FF','32004526 FFFF'], note: 'Red heart, then the proposal is accepted.' },
+      { name: 'Harvest Goddess', lines: ['820045A4 FFFF','820045A6 FFFF'], note: 'Red heart and proposal. Every sprite needs to be active for this one.' },
+      {
+        name: 'Heart level',
+        lines: ['32004359 0000','32004359 3333','32004359 5555','32004359 9999','32004359 BBBB','32004359 DDDD','32004359 FFFF'],
+        comments: ['Black','Purple','Blue','Green','Yellow','Orange','Red'],
+        swatches: ['#1B2A21','#A06CD5','#5B9BD5','#4E9E5E','#FBE45C','#F0913C','#F0565C'],
+        note: 'The value sets how far along the heart is. Black is the lowest step, red is the highest. The address above is Popuri\u2019s; swap it for another candidate\u2019s heart address to set theirs.'
+      },
+      { name: 'Staid (sprite)', lines: ['820045F0 FFFF','820045FC FFFF','320045FE 00FF'], note: 'Maximum affection, maximum skill, then one closing line.' },
+      { name: 'Nappy (sprite)', lines: ['82004614 FFFF','82004620 FFFF','32004622 00FF'] },
+      { name: 'Bold (sprite)', lines: ['82004638 FFFF','82004644 FFFF','32004646 00FF'] },
+      { name: 'Chef (sprite)', lines: ['8200465C FFFF','82004668 FFFF','3200466A 00FF'] },
+      { name: 'Aqua (sprite)', lines: ['82004680 FFFF','8200468C FFFF','3200468E 00FF'] },
+      { name: 'Hoggy (sprite)', lines: ['820046A4 FFFF','820046B0 FFFF','320046B2 00FF'] },
+      { name: 'Timid (sprite)', lines: ['820046C8 FFFF','820046D4 FFFF','320046D6 00FF'] }
+    ]
+  },
+
+  {
+    id: 'berry', num: '05', title: 'Power Berries', short: 'Berries', accent: 'coral',
+    lead: 'Power Berries raise your maximum stamina. A normal playthrough only hands you a handful, and some of them take a long detour.',
+    groups: [
+      { name: 'All Power Berries', lines: ['820041F4 FFFF'], note: 'Sets every Power Berry flag at once.' }
+    ]
+  },
+
+  {
+    id: 'waktu', num: '06', title: 'Weather & dates', short: 'Weather', accent: 'sky',
+    lead: 'Change the weather and jump to any date you like. Handy for catching a festival or skipping to a particular season.',
+    groups: [
+      { name: 'Stop the clock', lines: ['320025EB 0078'], note: 'Time stops running. Pair it with a weather code so night does not catch you out.' },
+      { name: 'Weather', lines: WEATHER.map(w => `320025E0 ${w[0]}`), comments: WEATHER.map(w => WEATHER_NOTE[w[0]]) }
+    ],
+    ref: 'day'
+  },
+
+  {
+    id: 'alat', num: '07', title: 'Tool codes', short: 'Tools', accent: 'leaf',
+    lead: 'Put any tool into any backpack slot. Each slot address sits eight bits apart, and the value decides which tool you get.',
+    groups: [],
+    ref: 'tool'
+  },
+
+  {
+    id: 'item', num: '08', title: 'Item codes', short: 'Items', accent: 'blush',
+    lead: 'The same idea as tools, but for items: crops, cooked dishes, ores, even photo albums. The list is long, so search is the fast way through it.',
+    groups: [],
+    ref: 'item'
+  }
+,
+  {
+    id: 'recipe', num: '09', title: 'Cooking Recipes', short: 'Recipes', accent: 'sun',
+    lead: 'All 108 cooking recipes in the game. These can be spawned into your backpack just like regular items, or you can use them to win the Cooking Festival.',
+    groups: [],
+    ref: 'recipe'
+  },
+  {
+    id: 'cal', num: '10', title: 'Game Events Calendar', short: 'Calendar', accent: 'sky',
+    lead: 'Every festival, birthday and special date in the year, straight from the FoMT calendar.',
+    groups: [],
+    ref: 'calendar'
+  }
+];
+
+const CALENDAR = [
+  ["Spring", 1, "New Year Festival", "6pm in Rose Square"],
+  ["Spring", 2, "", ""],
+  ["Spring", 3, "", ""],
+  ["Spring", 4, "Bold's Birthday", "Likes: Flour, Honey"],
+  ["Spring", 5, "", ""],
+  ["Spring", 6, "", ""],
+  ["Spring", 7, "", ""],
+  ["Spring", 8, "Harvest Goddess's Birthday", "Likes: Grown Produce, Milk and Flowers."],
+  ["Spring", 9, "Harvest Goddess' Alternate Birthday", "See: 8th of Spring"],
+  ["Spring", 10, "", ""],
+  ["Spring", 11, "Saibara's Birthday", "Likes: Ores, Milk"],
+  ["Spring", 12, "", ""],
+  ["Spring", 13, "", ""],
+  ["Spring", 14, "Spring Thanksgiving", "Bake cookies for eligible females"],
+  ["Spring", 15, "Staid's birthday", "The Darker Blue Sprite. Likes: Flour, Honey"],
+  ["Spring", 16, "Elli's Birthday", "Likes: Accessories, Milk, Flowers"],
+  ["Spring", 17, "Barley's Birthday", "Likes: Rice, Vegetables, Milk"],
+  ["Spring", 18, "Horse Race", "10am in Rose Square. Only adult horse can compete."],
+  ["Spring", 19, "Lillia's Birthday", "Likes: Eggs, Turbojolt, Bodgizer"],
+  ["Spring", 20, "Elli's Secondary Birthday", "See: 16th Spring"],
+  ["Spring", 21, "", ""],
+  ["Spring", 22, "Cooking Festival", "10am, Rose square.Talk to Gourmet guy to find out the theme then exit. Make a dish, and return."],
+  ["Spring", 23, "", ""],
+  ["Spring", 24, "", ""],
+  ["Spring", 25, "", ""],
+  ["Spring", 26, "Aqua's Birthday", "Likes: Flour, Honey, Blue Grass"],
+  ["Spring", 27, "", ""],
+  ["Spring", 28, "", ""],
+  ["Spring", 29, "", ""],
+  ["Spring", 30, "Sasha's Birthday", "Likes: Milk, Pink Cat Flowers"],
+  ["Summer", 1, "Beach Day", "10am at the beach. Only adult dogs can compete."],
+  ["Summer", 2, "", ""],
+  ["Summer", 3, "Popuri's Birthday", "Likes: Eggs, Weeds, Flowers"],
+  ["Summer", 4, "Harris' Birthday", "Likes: Eggs, Rice"],
+  ["Summer", 5, "", ""],
+  ["Summer", 6, "Cliff's Birthday", "Likes: Scrambled Eggs, Curry Rice, Milk, Apples"],
+  ["Summer", 7, "Chicken Festival", "10am in Rose Square. Only adult chickens can compete."],
+  ["Summer", 8, "", ""],
+  ["Summer", 9, "", ""],
+  ["Summer", 10, "Popuri's Alternate Birthday", "See: 3rd of Summer"],
+  ["Summer", 11, "Basil's Birthday", "Likes: Flowers, Wine, Grape Juice"],
+  ["Summer", 12, "", ""],
+  ["Summer", 13, "", ""],
+  ["Summer", 14, "", ""],
+  ["Summer", 15, "", ""],
+  ["Summer", 16, "Timid's Birthday", "Likes: Flour, Honey, Green Grass"],
+  ["Summer", 17, "Ann's Birthday", "Likes: Eggs, Cake, Pancakes, Chocolate"],
+  ["Summer", 18, "", ""],
+  ["Summer", 19, "", ""],
+  ["Summer", 20, "Cow Festival", "10am in Rose Square.Only non pregnant, healthy cows can compete."],
+  ["Summer", 21, "", ""],
+  ["Summer", 22, "Kai's Birthday, Ann's Alternate Birthday", "Kai Likes: Fish, Flour, Oil, Pineapples Ann: See: 17th Summer"],
+  ["Summer", 23, "", ""],
+  ["Summer", 24, "Fireworks Festival", "6pm at the beach. Summer romantic festival."],
+  ["Summer", 25, "Mayor Thomas' Birthday", "Likes: Wine, Noodles"],
+  ["Summer", 26, "", ""],
+  ["Summer", 27, "", ""],
+  ["Summer", 28, "", ""],
+  ["Summer", 29, "Zack's Birthday", "Likes: Milk, Fish"],
+  ["Summer", 30, "", ""],
+  ["Fall", 1, "", ""],
+  ["Fall", 2, "Gotz's Birthday", "Likes: Honey, Lumber"],
+  ["Fall", 3, "Music Festival", "6pm at the Church."],
+  ["Fall", 4, "", ""],
+  ["Fall", 5, "Stu's Birthday, Ann's Mother's Funeral Anniversary", "Stu likes: Honey, Chocolate, Yarn Doug's Event: Not on Calendar. Summit of Mother Hill, from 6am to 5pm"],
+  ["Fall", 6, "", ""],
+  ["Fall", 7, "", ""],
+  ["Fall", 8, "", ""],
+  ["Fall", 9, "Harvest Festival", "10pm in Rose Square. Bring food."],
+  ["Fall", 10, "Hoggy's Birthday, Every 5 years Shooting Star Festival", "Likes: Flour, Honey. Shooting Star Festival: 6pm, Summit of Hill."],
+  ["Fall", 11, "Manna's Birthday", "Likes: Milk, Honey, Fish, Pink Cat Flowers"],
+  ["Fall", 12, "", ""],
+  ["Fall", 13, "Full Moon Festival", "6pm on the summit of Mother Hill. Fall romantic festival."],
+  ["Fall", 14, "Chef's Birthday", "Likes: Flour, Honey, Red Grass"],
+  ["Fall", 15, "Karen's Birthday", "Likes: Wine, Cheese, Truffle"],
+  ["Fall", 16, "", ""],
+  ["Fall", 17, "", ""],
+  ["Fall", 18, "Horse Races", "10am in Rose Square. Can only compete with an adult horse."],
+  ["Fall", 19, "Doctor's Birthday", "Likes: Milk, Vegetable Juice, Colored Grass"],
+  ["Fall", 20, "Carter's Birthday", "Likes: Honey, Wine, Eggs"],
+  ["Fall", 21, "Sheep Festival", "10am in Rose Square. Can compete with non-pregnant, non-shorn Sheep."],
+  ["Fall", 22, "", ""],
+  ["Fall", 23, "Anna's Birthday, Karen's Alternate Birthday", "Anna Likes: Honey, Wine, Eggs, Milk Karen: See: 15th Fall"],
+  ["Fall", 24, "", ""],
+  ["Fall", 25, "", ""],
+  ["Fall", 26, "", ""],
+  ["Fall", 27, "Rick's Birthday", "Likes: Chicken Feed, Eggs, Honey"],
+  ["Fall", 28, "", ""],
+  ["Fall", 29, "", ""],
+  ["Fall", 30, "Pumpkin Festival", "May (6am), Stu (8am) and Popuri (10am) turn up for Chocolate."],
+  ["Winter", 1, "", ""],
+  ["Winter", 2, "Mayor Thomas' Request", "Not on calendar. 6am, your house. Thomas will ask you for something and will return at 7pm for it."],
+  ["Winter", 3, "", ""],
+  ["Winter", 4, "", ""],
+  ["Winter", 5, "", ""],
+  ["Winter", 6, "Gray's Birthday", "Likes: Ores, Mayonnaise, Turbojolt, Lumber"],
+  ["Winter", 7, "", ""],
+  ["Winter", 8, "", ""],
+  ["Winter", 9, "", ""],
+  ["Winter", 10, "", ""],
+  ["Winter", 11, "Doug's Birthday", "Likes: Honey, Wine, Apples, Eggs"],
+  ["Winter", 12, "", ""],
+  ["Winter", 13, "Ellen's Birthday", "Likes: Yarn, Milk, Flour"],
+  ["Winter", 14, "Winter Thanksgiving (Valentine's Day)", "Girls that like you will give you Cake. If you're married you get cake while you're sleeping."],
+  ["Winter", 15, "Duke's Birthday", "Likes: Wine, Eggs, Cheese, Fish"],
+  ["Winter", 16, "", ""],
+  ["Winter", 17, "", ""],
+  ["Winter", 18, "", ""],
+  ["Winter", 19, "Won's Birthday", "Likes: Anything Valuable, Eggs, Apples"],
+  ["Winter", 20, "Mary's Birthday", "Likes: Vegetable Juice, Grasses, Cheese, Grape Juice"],
+  ["Winter", 21, "", ""],
+  ["Winter", 22, "Nappy's Birthday", "Likes: Flour, Honey"],
+  ["Winter", 23, "", ""],
+  ["Winter", 24, "Starry Night Festival", "Girls that like you will ask you on the 23rd if you'd like to come to their house for the event. Go at their house at 6pm. If you're married, go in to your house at noon. This is the Winter romantic festival."],
+  ["Winter", 25, "Stocking Festival, Mary's Alternative Birthday", "Need sock to activate. Go to bed past 9pm and you will get a gift. To get a sock, be good friends with Ellen and give her yarn. Cut scene will happen and you'll get a sock. Mary: See: 20th Winter"],
+  ["Winter", 26, "May's Birthday", "Likes: Apples, Honey, Chocolate, Flowers"],
+  ["Winter", 27, "", ""],
+  ["Winter", 28, "", ""],
+  ["Winter", 29, "Jeff's Birthday", "Likes: Grass, Turobjolt, Bodigizer, Fish"],
+  ["Winter", 30, "Year End Festival", "6pm at Rose Square or 00:00am at the Summit of Mother Hill."]
+];
+
+/* ── Tools ── */
+const TOOLS = [
+  ['00','Sickle'],['01','Copper Sickle'],['02','Silver Sickle'],['03','Gold Sickle'],['04','Mystrile Sickle'],['05','Cursed Sickle'],['06','Blessed Sickle'],['07','Mythic Sickle'],
+  ['08','Hoe'],['09','Copper Hoe'],['0A','Silver Hoe'],['0B','Gold Hoe'],['0C','Mystrile Hoe'],['0D','Cursed Hoe'],['0E','Blessed Hoe'],['0F','Mythic Hoe'],
+  ['10','Axe'],['11','Copper Axe'],['12','Silver Axe'],['13','Gold Axe'],['14','Mystrile Axe'],['15','Cursed Axe'],['16','Blessed Axe'],['17','Mythic Axe'],
+  ['18','Hammer'],['19','Copper Hammer'],['1A','Silver Hammer'],['1B','Gold Hammer'],['1C','Mystrile Hammer'],['1D','Cursed Hammer'],['1E','Blessed Hammer'],['1F','Mythic Hammer'],
+  ['20','Watering Can'],['21','Copper Watering Can'],['22','Silver Watering Can'],['23','Gold Watering Can'],['24','Mystrile Watering Can'],['25','Cursed Watering Can'],['26','Blessed Watering Can'],['27','Mythic Watering Can'],
+  ['28','Fishing Rod'],['29','Copper Fishing Rod'],['2A','Silver Fishing Rod'],['2B','Gold Fishing Rod'],['2C','Mystrile Fishing Rod'],['2D','Cursed Fishing Rod'],['2E','Blessed Fishing Rod'],['2F','Mythic Fishing Rod'],
+  ['30','Cow Miracle Potion'],['31','Sheep Miracle Potion'],
+  ['32','Turnip Seeds'],['33','Potato Seeds'],['34','Cucumber Seeds'],['35','Strawberry Seeds'],['36','Cabbage Seeds'],['37','Tomato Seeds'],['38','Corn Seeds'],['39','Onion Seeds'],
+  ['3A','Pumpkin Seeds'],['3B','Pineapple Seeds'],['3C','Eggplant Seeds'],['3D','Carrot Seeds'],['3E','Sweet Potato Seeds'],['3F','Spinach Seeds'],['40','Green Pepper Seeds'],['41','Grass Seeds'],
+  ['42','Moon Drop Seeds'],['43','Pink Cat Seeds'],['44','Magic Seeds'],['45','Toy Flower Seeds'],
+  ['46','Brush'],['47','Milker'],['48','Shears'],['49','Bell'],['4A','Animal Medicine'],['4B','Blue Feather'],['4C','Pedometer'],['4D','Teleport Stone'],
+  ['4E','Gem of the Goddess'],['4F','Gem of the Kappa'],['50','Gem of the Truth']
+];
+
+/* ── Items ── */
+const ITEMS = [
+  ['0000','Turnip'],['0100','Potato'],['0200','Cucumber'],['0300','Strawberry'],['0400','Cabbage'],['0500','Tomato'],['0600','Corn'],['0700','Onion'],
+  ['0800','Pumpkin'],['0900','Pineapple'],['0A00','Eggplant'],['0B00','Carrot'],['0C00','Sweet Potato'],['0D00','Spinach'],['0E00','Green Pepper'],
+  ['0F00','Normal Egg'],['1000','Good Egg'],['1100','Excellent Egg'],['1200','Gold Egg'],['1300','P Egg'],['1400','X Egg'],['1500','Spa Boiled Egg'],
+  ['1600','Mayonnaise S'],['1700','Mayonnaise M'],['1800','Mayonnaise L'],['1900','Mayonnaise G'],['1A00','Mayonnaise P'],['1B00','Mayonnaise X'],
+  ['1C00','Milk S'],['1D00','Milk M'],['1E00','Milk L'],['1F00','Milk G'],['2000','Milk P'],['2100','Milk X'],
+  ['2200','Cheese S'],['2300','Cheese M'],['2400','Cheese L'],['2500','Cheese G'],['2600','Cheese P'],['2700','Cheese X'],
+  ['2800','Apple'],['2900','Honey'],['2A00','Bamboo Shoot'],['2B00','Wild Grape'],['2C00','Mushroom'],['2D00','Poisonous Mushroom'],['2E00','Truffle'],
+  ['2F00','Blue Grass'],['3000','Green Grass'],['3100','Red Grass'],['3200','Yellow Grass'],['3300','Orange Grass'],['3400','Purple Grass'],['3500','Indigo Grass'],['3600','Black Grass'],['3700','White Grass'],
+  ['3800','Queen of the Night'],['3900','Bodigizer'],['3A00','Bodigizer XL'],['3B00','Turbojolt'],['3C00','Turbojolt XL'],
+  ['3D00','Wine'],['3E00','Grape Juice'],['3F00','Rice Ball'],['4000','Bread'],['4100','Oil'],['4200','Flower'],['4300','Curry Powder'],['4400','Muffin Mix'],['4500','Chocolate'],['4600','Relaxation Tea Leaves'],
+  ['4700','SUGDW Apple'],['4800','HMSGB Apple'],['4900','AEPFE Apple'],['4A00','Buckwheat Flour'],['4B00','Wild Grape Wine'],
+  ['4C00','Salad'],['4D00','Curry Rice'],['4E00','Stew'],['4F00','Miso Soup'],['5000','Stir-Fried Vegetables'],['5100','Fried Rice'],['5200','Okonomiyaki'],['5300','Sandwich'],
+  ['5400','Fruit Juice'],['5500','Vegetable Juice'],['5600','Mixed Juice'],['5700','Fruit Latte'],['5800','Vegetable Latte'],['5900','Mixed Latte'],['5A00','Strawberry Smoothie'],['5B00','Strawberry Jam'],
+  ['5C00','Tomato Juice'],['5D00','Pickled Turnip'],['5E00','French Fries'],['5F00','Pickles'],['6000','Ketchup'],['6100','Popcorn'],['6200','Corn Flakes'],['6300','Roasted Corn'],
+  ['6400','Pineapple Juice'],['6500','Pumpkin Pudding'],['6600','Pumpkin Stew'],['6700','Happy Eggplant'],['6800','Sweet Potato'],['6900','Roasted Sweet Potato'],['6A00','Green Vegetables'],['6B00','Scrambled Eggs'],
+  ['6C00','Omelet'],['6D00','Omelet Rice'],['6E00','Boiled Egg'],['6F00','Hot Milk'],['7000','Butter'],['7100','Cheesecake'],['7200','Cheese Fondue'],
+  ['7300','Apple Pie'],['7400','Apple Jam'],['7500','Apple Souffle'],['7600','Mushroom Rice'],['7700','Bamboo Rice'],['7800','Truffle Rice'],['7900','Sushi'],
+  ['7A00','Jam Bun'],['7B00','Dinner Roll'],['7C00','Raisin Bread'],['7D00','Grape Jam'],['7E00','Curry Bread'],['7F00','Sashimi'],['8000','Grilled Fish'],['8100','Mixed Sashimi'],
+  ['8200','Pizza'],['8300','Noodles'],['8400','Curry Noodles'],['8500','Tempura Noodles'],['8600','Fried Noodles'],['8700','Soba Noodles'],['8800','Tempura Soba'],['8900','Fried Soba'],
+  ['8A00','Buckwheat Chips'],['8B00','Cookies'],['8C00','Chocolate Cookies'],['8D00','Tempura'],['8E00','Ice Cream'],['8F00','Cake'],['9000','Chocolate Cake'],['9100','Relaxation Tea'],
+  ['9200','Toast'],['9300','French Toast'],['9400','Pudding'],['9500','Mountain Stew'],['9600','Moon Dumplings'],['9700','Rice Cake'],['9800','Roasted Rice Cake'],['9900','Elli Leaves'],
+  ['A000','Small Fish'],['A100','Medium Fish'],['A200','Large Fish'],['A300','Grilled Rice Ball'],['A400','Tempura Rice'],['A500','Egg over Rice'],['A600','Rice Porridge'],
+  ['A700','Pancakes'],['A800','Fish Sticks'],['A900','Candied Sweet Potato'],['AA00','Potato Pancakes'],
+  ['0001','Moon Drop Grass'],['0101','Pink Cat Grass'],['0201','Blue Magic Grass'],['0301','Red Magic Grass'],['0401','Toy Flower'],
+  ['0501','Wool S'],['0601','Wool M'],['0701','Wool L'],['0801','Wool G'],['0901','Wool P'],['0A01','Wool X'],
+  ['0B01','Yarn S'],['0C01','Yarn M'],['0D01','Yarn L'],['0E01','Yarn G'],['0F01','Yarn P'],['1001','Yarn X'],
+  ['1101','Junk Ore'],['1201','Copper Ore'],['1301','Silver Ore'],['1401','Gold Ore'],['1501','Mithril Ore'],['1601','Orichalcum Ore'],['1701','Adamantite Ore'],
+  ['1801','Moon Stone'],['1901','Sand Rose'],['1A01','Pink Diamond'],['1B01','Alexandrite'],['1C01','Mythic Stone'],['1D01','Diamond'],['1E01','Emerald'],['1F01','Ruby'],
+  ['2001','Topaz'],['2101','Peridot'],['2201','Fluorite'],['2301','Agate'],['2401','Amethyst'],
+  ['2501','Gem of the Goddess'],['2601','Gem of the Kappa'],['2701','Gem of the Truth'],
+  ['2C01','Bracelet'],['2D01','Necklace'],['2E01','Earrings'],['2F01','Brooch'],
+  ['3001','Weeds'],['3101','Stone'],['3201','Branch'],
+  ['3301','French Fries Recipe'],['3401','Ketchup Recipe'],['3501','Ball'],['3601','Pirate Treasure'],['3701','Ancient Fish Fossil'],
+  ['3801','Empty Can'],['3901','Boot'],['3A01','Fish Bone'],
+  ['3B01',"Karen's Wine"],['3C01',"Popuri's Mud Ball"],['3D01',"Ann's Music Box"],['3E01',"Mary's Ledger"],['3F01',"Elli's Dried Flower"],
+  ['4001','Album 1'],['4101','Album 2'],['4201','Album 3'],['4301','Album 4'],['4401','Album 5'],['4501','Album 6'],['4601','Album 7'],['4701','Album 8'],['4801','Album 9'],['4901','Album 10'],
+  ['4F01','Band-Aid'],['5001','Book from the Goddess'],['5101','Perfume'],['5201','Photo'],['5301','Plant Encyclopedia'],['5401','Invitation'],
+  ['5501','Dress'],['5601','Facial Pack'],['5701','Skin Lotion'],['5801','Sunscreen'],
+  ['5901','Lumber'],['5A01','Golden Lumber'],['5B01','Animal Feed'],['5C01','Chicken Feed'],['5D01','Certificate'],['5E01','Frisbee']
+];
+
+/* ── Seasons ── */
+const SEASONS = ['Spring','Summer','Fall','Winter'];
+
+const ACCENT_BG = { sun: '#FBE45C', leaf: '#4E9E5E', sky: '#8DB9CF', coral: '#F0565C', blush: '#F3D3CE' };
+const ACCENT_FG = { sun: '#22312A', leaf: '#FFFDF7', sky: '#22312A', coral: '#FFFDF7', blush: '#22312A' };
+
+/* ═══════════════════════════════════════════════════════════════
+   HELPERS
+   ═══════════════════════════════════════════════════════════════ */
+
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+
+const ICON_COPY = '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+const ICON_OK   = '<svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>';
+
+/** Split a code line into its address and value halves. */
+function parseLine(line, comment) {
+  const m = String(line).trim().match(/^(\S+)\s+(\S+)$/);
+  if (!m) return { addr: String(line).trim(), val: '', cmt: comment || '' };
+  return { addr: m[1], val: m[2], cmt: comment || '' };
+}
+
+/** A framed sheet of codes: the entry's name in the header bar, ruled rows below.
+    Lists of 16 lines or more pair two codes per row so they stay a page, not a scroll. */
+function codeBlock(lines, title, comments, swatches) {
+  const rows = lines.map((l, i) => parseLine(l, comments ? comments[i] : ''));
+  const text = lines.join('\n');
+  const hasCmt = rows.some(r => r.cmt);
+  const paired = !hasCmt && rows.length >= 16;
+
+  let body = '';
+  if (paired) {
+    const half = Math.ceil(rows.length / 2);
+    const half1 = rows.slice(0, half), half2 = rows.slice(half);
+    const part = rs => `<table class="codetable"><tbody>${rs.map(r =>
+      `<tr><td class="ca">${esc(r.addr)}</td><td class="cv">${esc(r.val)}</td></tr>`).join('')}</tbody></table>`;
+    body = `<div class="split">${part(half1)}${part(half2)}</div>`;
+  } else {
+    body = `<table class="codetable"><tbody>${rows.map((r, i) =>
+      `<tr><td class="ca">${esc(r.addr)}</td><td class="cv">${esc(r.val)}</td>${
+        hasCmt ? `<td class="cc">${swatches && swatches[i]
+          ? `<i class="sw" style="background:${esc(swatches[i])}" aria-hidden="true"></i>` : ''}<span class="cc-txt">${esc(r.cmt)}</span></td>` : ''
+      }</tr>`).join('')}</tbody></table>`;
+  }
+
+  const iconEmoji = getIcon(title);
+  return `<div class="codeblock">
+    <div class="chead">
+      <span class="inline-flex items-center justify-center w-[20px] h-[20px] bg-paper2 overflow-hidden border-2 border-ink text-[12px] leading-none shrink-0 shadow-[1.5px_1.5px_0_#22312A]" style="font-family: system-ui; image-rendering: auto;">${iconEmoji}</span>
+      <span class="chead-title">${esc(title)}</span>
+      <button type="button" class="copy-tab no-print" data-copy="${esc(text)}"
+              aria-label="Copy ${esc(title)}">${ICON_COPY}<span>COPY</span></button>
+    </div>
+    ${body}
+  </div>`;
+}
+
+let toastTimer;
+function toast(msg) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.style.opacity = '1';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.style.opacity = '0'; }, 1800);
+}
+
+async function copy(text, btn) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch { toast('Could not copy'); }
+    ta.remove();
+  }
+  if (btn) {
+    btn.dataset.done = '1';
+    btn.innerHTML = ICON_OK + '<span>COPIED</span>';
+    setTimeout(() => {
+      btn.dataset.done = '0';
+      btn.innerHTML = ICON_COPY + '<span>COPY</span>';
+    }, 1600);
+  }
+  toast('Code copied');
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO — the master code is the first thing you actually need
+   ═══════════════════════════════════════════════════════════════ */
+
+$('#hero-master').innerHTML = codeBlock(MASTER, 'Master Code');
+
+/* ═══════════════════════════════════════════════════════════════
+   BUILD: SECTION HEADING
+   ═══════════════════════════════════════════════════════════════ */
+
+function heading(sec) {
+  const bg = ACCENT_BG[sec.accent] || '#FBE45C';
+  const fg = ACCENT_FG[sec.accent] || '#22312A';
+  return `<header class="pb-6 scroll-reveal">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="chip dither" style="background:${bg};color:${fg}">${sec.num}</span>
+      <h2 id="${sec.id}-title" class="font-display font-extrabold text-[1.7rem] sm:text-[2rem] tracking-[-0.02em] leading-none">${esc(sec.title)}</h2>
+    </div>
+    <p class="text-inksoft text-[1.0625rem] font-medium leading-[1.75] tracking-wide max-w-[64ch]">${esc(sec.lead)}</p>
+  </header>`;
+}
+
+/** One cheat entry: its own framed sheet, with the explanation underneath. */
+function card(g, idx, tone) {
+  const search = (g.name + ' ' + (g.note || '') + ' ' + g.lines.join(' ') + ' ' + (g.comments || []).join(' ')).toLowerCase();
+  const note = g.note ? `<p class="note text-base font-medium text-inksoft leading-relaxed tracking-wide max-w-[64ch]">${esc(g.note)}</p>` : '';
+
+  if (tone === 'warn') {
+    return `<article class="cheat bg-sun border-2 border-ink p-5 sm:p-6 scroll-reveal" data-search="${esc(search)}">
+      <div class="flex flex-wrap items-center gap-x-2.5 gap-y-2 mb-3">
+        <span class="font-mono text-[10px] font-bold tracking-wider text-paper2 bg-coral border-2 border-ink px-2 py-0.5 shadow-[3px_3px_0_#22312A]">ENTER FIRST</span>
+        <span class="text-sm font-semibold">Before any other code</span>
+      </div>
+      ${codeBlock(g.lines, g.name, g.comments, g.swatches)}
+      ${note}
+    </article>`;
+  }
+
+  return `<article class="cheat pt-1 pb-8 scroll-reveal" data-search="${esc(search)}">
+    ${codeBlock(g.lines, g.name, g.comments, g.swatches)}
+    ${note}
+  </article>`;
+}
+
+/** A note from the archive's mascot. */
+function mascotPanel() {
+  return `<aside class="mascot bg-sky border-2 border-ink p-6 sm:p-7 flex flex-col sm:flex-row items-start gap-7 scroll-reveal">
+
+    <div class="flex-1 min-w-0">
+      <p class="font-mono text-[10px] font-bold tracking-wider text-ink/70 mb-3">A QUICK WARNING</p>
+      <p class="font-display font-extrabold text-xl leading-snug mb-3 max-w-[42ch]">
+        Backup your save file first.
+      </p>
+      <p class="text-sm text-ink/80 leading-relaxed max-w-[58ch] mb-6">
+        Cheats modify memory directly. Keep a copy of your <span class="font-mono text-[13px] font-bold">.sav</span> file to avoid losing your farm if something goes wrong.
+      </p>
+      <div class="flex items-center gap-3 pt-4 border-t-2 border-ink/25">
+        <img src="pete.webp" width="160" height="160" loading="lazy" decoding="async" alt=""
+             class="w-10 h-10 border-2 border-ink object-cover bg-paper2">
+        <div class="text-sm">
+          <div class="font-bold">Harvest Moon: Friends of Mineral Town farmer</div>
+          <div class="text-ink/70">The archive's mascot</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="shrink-0 self-center sm:self-start flex flex-col items-center">
+      <picture>
+        <source srcset="items/natsume_logo.svg" type="image/svg+xml">
+        <img src="items/natsume_logo.svg" width="400" height="361" loading="lazy" decoding="async"
+             alt="Natsume Logo"
+             class="w-40 sm:w-48 h-auto">
+      </picture>
+      <p class="mt-4 font-mono text-[10px] font-bold tracking-widest text-ink/70 bg-paper2 px-3 py-1 border-2 border-ink/20 rounded-full">"SERIOUS FUN!"</p>
+    </div>
+  </aside>`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUILD: REFERENCE TABLES
+   ═══════════════════════════════════════════════════════════════ */
+
+
+  function recipeTable(id, recipes) {
+    let out = `<div class="max-h-[22rem] overflow-y-auto mt-4 border-2 border-ink ref-scroll"><table class="reftable" id="${id}">`;
+    out += `<thead><tr><th>Dish Name</th><th>Ingredients</th><th>Utensils</th><th>Seasoning</th></tr></thead><tbody class="font-mono text-sm">`;
+    recipes.forEach(r => {
+      const icon = ICONS_MAPPING[r.iconKey] || 'items/mine_pinkdiamond.gif';
+      out += `<tr class="ref-row" data-name="${esc(r.name.toLowerCase())}">`;
+      out += `<td><div class="flex items-center gap-3"><img src="${icon}" class="w-6 h-6 object-contain" style="image-rendering:pixelated"><span class="font-bold">${esc(r.name)}</span></div></td>`;
+      out += `<td class="leading-snug text-xs sm:text-sm">${esc(r.req_ingredients)}</td>`;
+      out += `<td class="leading-snug text-xs sm:text-sm">${esc(r.req_utensils)}</td>`;
+      out += `<td class="leading-snug text-xs sm:text-sm">${esc(r.req_seasoning)}</td>`;
+      out += `</tr>`;
+    });
+    out += `</tbody></table></div>`;
+    out += `<p class="mt-2 text-[11px] font-mono font-bold tracking-wider text-inksoft text-right" id="${id}-count"></p>`;
+    return out;
+  }
+
+  function refTable(id, rows, valueHead, valueFmt) {
+  return `<div class="relative mt-5 border-2 border-ink bg-paper2 scroll-reveal" data-anchor>
+    <div class="ref-scroll max-h-[28rem] overflow-y-auto">
+      <table class="reftable" id="${id}">
+        <caption class="sr-only">${esc(valueHead)}</caption>
+        <thead class="sticky top-0 z-10">
+          <tr>
+            <th scope="col" class="w-28">Value</th>
+            <th scope="col">${esc(valueHead)}</th>
+            <th scope="col" class="w-14"><span class="sr-only">Copy</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map(([v, l]) => `<tr class="ref-row" data-search="${esc((v + ' ' + l).toLowerCase())}" data-v="${esc(v)}" data-l="${esc(l)}">
+            <td class="ref-val">${esc(v)}</td>
+            <td class="ref-label"><span class="icon-tile mr-2">${getIcon(l)}</span>${esc(l)}</td>
+            <td>
+              <button type="button" class="row-copy no-print" data-copy="${esc(valueFmt(v))}"
+                      aria-label="Copy the code for ${esc(l)}" title="Copy ${esc(valueFmt(v))}">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="mt-2 font-mono text-[11px] text-inksoft" id="${id}-count">${rows.length} entries. Scroll the table to see them all.</p>`;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RENDER CONTENT
+   ═══════════════════════════════════════════════════════════════ */
+
+const content = $('#content');
+let html = '';
+
+SECTIONS.forEach(sec => {
+  html += `<section data-anchor id="${sec.id}" data-section="${sec.id}" aria-labelledby="${sec.id}-title">`;
+  html += heading(sec);
+
+  if (sec.groups && sec.groups.length) {
+    html += `<div>${sec.groups.map((g, i) => card(g, i, sec.tone)).join('')}</div>`;
+  }
+
+  if (sec.panel === 'mascot') html += `<div class="mt-8">${mascotPanel()}</div>`;
+
+  if (sec.ref === 'tool') {
+    html += `<div class="mt-9">
+      <h3 class="font-display font-extrabold text-lg mb-1">Complete tool list</h3>
+      <p class="text-sm text-inksoft">Two-digit hexadecimal value for the <span class="font-mono text-[13px] font-bold">yy</span> field.</p>
+      ${refTable('tool-ref', TOOLS, 'Tool', v => `32004238 00${v}`)}
+    </div>`;
+  }
+
+    if (sec.ref === 'recipe') {
+    html += `<div class="mt-9">
+      <h3 class="font-display font-extrabold text-lg mb-1">Cooking Recipes Guide</h3>
+      <p class="text-sm text-inksoft">All the ingredients and utensils you need to cook every dish in your kitchen.</p>
+      ${recipeTable('recipe-ref', COOKING_RECIPES_DATA)}
+    </div>`;
+  }
+
+  if (sec.ref === 'item') {
+    html += `<div class="mt-9">
+      <h3 class="font-display font-extrabold text-lg mb-1">Complete item list</h3>
+      <p class="text-sm text-inksoft">Four-digit hexadecimal value for the <span class="font-mono text-[13px] font-bold">yyyy</span> field. A few ranges really are empty in the original source.</p>
+      ${refTable('item-ref', ITEMS, 'Item', v => `82004214 ${v}`)}
+    </div>`;
+  }
+
+  if (sec.ref === 'day') {
+    const dayRows = [];
+    for (let d = 1; d <= 30; d++) for (let s = 0; s < 4; s++) {
+      dayRows.push([((d - 1) * 4 + s).toString(16).toUpperCase().padStart(2, '0'), `${SEASONS[s]} ${d}`]);
+    }
+    html += `<div class="mt-9">
+      <h3 class="font-display font-extrabold text-lg mb-1">Complete date values</h3>
+      <p class="text-sm text-inksoft">All 120 values for the <span class="font-mono text-[13px] font-bold">yy</span> field.</p>
+      ${refTable('day-ref', dayRows, 'Date', v => `320025E9 00${v}`)}
+    </div>`;
+  }
+
+  if (sec.ref === 'calendar') {
+    html += `<div class="mt-9">
+      <h3 class="font-display font-extrabold text-lg mb-1">Full year at a glance</h3>
+      <p class="text-sm text-inksoft">Festivals, birthdays and special events for every season. Alternate birthdays only activate when you pick that date as your own birthday.</p>
+      ${['Spring','Summer','Fall','Winter'].map(season => `
+      <div class="relative mt-5 border-2 border-ink bg-paper2 scroll-reveal" data-anchor>
+        <div class="flex items-center justify-between px-3 py-2 bg-paper border-b-2 border-ink">
+          <h4 class="font-display font-extrabold text-sm">${season}</h4>
+          <span class="font-mono text-[11px] text-inksoft">30 days</span>
+        </div>
+        <div class="ref-scroll" style="max-height:26rem;overflow-y:auto">
+          <table class="reftable">
+            <thead class="sticky top-0 z-10">
+              <tr><th scope="col" class="w-24">Date</th><th scope="col">Event</th><th scope="col">Notes</th></tr>
+            </thead>
+            <tbody>
+              ${CALENDAR.filter(r => r[0]===season).map(r => `<tr class="ref-row" data-search="${esc((r[0]+' '+r[1]+' '+r[2]+' '+r[3]).toLowerCase())}">
+                <td class="ref-label"><span class="icon-tile mr-2">${getIcon(r[0]+' '+r[1])}</span>${esc(r[0])} ${esc(String(r[1]))}</td>
+                <td class="${r[2]? 'ref-kept' : 'text-inksoft italic'}">${esc(r[2] || '—')}</td>
+                <td class="text-inksoft">${esc(r[3])}</td>
+              </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>`).join('')}
+    </div>`;
+  }
+
+  html += `</section>`;
+});
+
+/* Empty state for search */
+html += `<div id="no-results" class="hidden text-center py-20 border-2 border-ink bg-paper2">
+  <div class="w-12 h-12 bg-sun border-2 border-ink grid place-items-center mx-auto mb-4">
+    <svg class="w-5 h-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+  </div>
+  <p class="font-display font-extrabold text-lg mb-1">Nothing matches</p>
+  <p class="text-sm text-inksoft">Try a different word, or <button type="button" id="clear-search" class="text-leafdeep font-semibold hover:underline">clear the search</button>.</p>
+</div>`;
+
+content.innerHTML = html;
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVIGATION (sidebar list + mobile rail)
+   ═══════════════════════════════════════════════════════════════ */
+
+$('#toc').innerHTML = SECTIONS.map(s => {
+  const bg = ACCENT_BG[s.accent] || '#FBE45C';
+  return `<li><a class="toc-link" href="#${s.id}" data-toc="${s.id}">
+     <span class="font-mono text-[10px] font-bold w-4 shrink-0">${s.num}</span>
+     <span class="w-2.5 h-2.5 border border-ink shrink-0" style="background:${bg}" aria-hidden="true"></span>
+     ${esc(s.title)}
+   </a></li>`;
+}).join('');
+
+$('#rail').innerHTML = SECTIONS.map(s => {
+  const bg = ACCENT_BG[s.accent] || '#FBE45C';
+  return `<a href="#${s.id}" data-rail="${s.id}" data-bg="${bg}"
+      class="shrink-0 px-3 py-1.5 font-mono text-[10px] font-bold tracking-wider bg-paper2 border-2 border-ink whitespace-nowrap transition-colors">${esc(s.short.toUpperCase())}</a>`;
+}).join('');
+
+/* ═══════════════════════════════════════════════════════════════
+   STATS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Every line the page can hand you: the entries, plus every row of the reference lists. */
+const totalLines = SECTIONS.reduce((n, s) => n + (s.groups || []).reduce((m, g) => m + g.lines.length, 0), 0)
+  + TOOLS.length + ITEMS.length + 120;
+$('#stat-lines').textContent = totalLines;
+
+/* ═══════════════════════════════════════════════════════════════
+   COPY HANDLING (delegated)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   8-BIT SOUND EFFECTS
+   ═══════════════════════════════════════════════════════════════ */
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+let audioCtx = null;
+
+function playBlip() {
+  if (!audioCtx) audioCtx = new AudioContext();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  osc.type = 'square';
+  osc.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 note
+  osc.frequency.setValueAtTime(1108.73, audioCtx.currentTime + 0.05); // C#6 note
+  
+  gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+  
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.15);
+}
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.copy-tab, .row-copy');
+  if (!btn) return;
+  
+  playBlip();
+  copy(btn.dataset.copy, btn.classList.contains('row-copy') ? null : btn);
+  if (btn.classList.contains('row-copy')) toast('Code copied');
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   SEARCH
+   ═══════════════════════════════════════════════════════════════ */
+
+const searchEls = [$('#search'), $('#search-m')].filter(Boolean);
+let query = '';
+
+/** Wrap the matching slice of text in <mark>. Input is escaped first. */
+function highlight(text, q) {
+  if (!q) return esc(text);
+  const i = text.toLowerCase().indexOf(q);
+  if (i === -1) return esc(text);
+  return esc(text.slice(0, i)) +
+    '<mark class="hl">' + esc(text.slice(i, i + q.length)) + '</mark>' +
+    esc(text.slice(i + q.length));
+}
+
+function applySearch(q) {
+  query = q.trim().toLowerCase();
+  const cards = $$('.cheat');
+  const rows = $$('.ref-row');
+  let visibleCards = 0, visibleRows = 0;
+
+  cards.forEach(el => {
+    const hit = !query || el.dataset.search.includes(query);
+    el.classList.toggle('hidden', !hit);
+    if (hit) visibleCards++;
+  });
+
+  rows.forEach(el => {
+    const hit = !query || el.dataset.search.includes(query);
+    el.classList.toggle('hidden', !hit);
+    if (hit) visibleRows++;
+    if (hit && el.dataset.v !== undefined) {
+      $('.ref-val', el).innerHTML = highlight(el.dataset.v, query);
+      $('.ref-label', el).innerHTML = `<span class="icon-tile mr-2">${getIcon(el.dataset.l)}</span>${highlight(el.dataset.l, query)}`;
+    }
+  });
+
+  // Hide a whole section when nothing inside it matches
+  SECTIONS.forEach(s => {
+    const sec = document.querySelector(`[data-section="${s.id}"]`);
+    if (!sec) return;
+    const inside = $$('.cheat:not(.hidden), .ref-row:not(.hidden)', sec).length;
+    sec.classList.toggle('hidden', query && inside === 0);
+  });
+
+  // Reference table counters
+  ['tool-ref', 'item-ref', 'day-ref', 'recipe-ref'].forEach(id => {
+    const tbl = $('#' + id);
+    const cnt = $('#' + id + '-count');
+    if (!tbl || !cnt) return;
+    const total = $$('.ref-row', tbl).length;
+    const shown = $$('.ref-row:not(.hidden)', tbl).length;
+    const label = { 'tool-ref': 'tools', 'item-ref': 'items', 'day-ref': 'dates', 'recipe-ref': 'recipes' }[id];
+    cnt.textContent = query ? `${shown} of ${total} ${label} match` : `${total} entries. Scroll the table to see them all.`;
+  });
+
+  $('#no-results').classList.toggle('hidden', !(query && visibleCards === 0 && visibleRows === 0));
+
+  // The mascot panel steps aside while searching so results get the space
+  $$('.mascot').forEach(el => el.classList.toggle('hidden', !!query));
+
+  searchEls.forEach(el => { if (el.value !== q) el.value = q; });
+}
+
+searchEls.forEach(el => el.addEventListener('input', e => applySearch(e.target.value)));
+
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && !/^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement.tagName)) {
+    e.preventDefault();
+    $('#search').focus();
+  }
+  if (e.key === 'Escape' && document.activeElement === $('#search')) {
+    applySearch('');
+    $('#search').blur();
+  }
+});
+
+document.addEventListener('click', e => {
+  if (e.target.closest('#clear-search')) { applySearch(''); $('#search').focus(); }
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL SPY
+   ═══════════════════════════════════════════════════════════════ */
+
+const sections = $$('[data-section]');
+const tocLinks = $$('[data-toc]');
+const railLinks = $$('[data-rail]');
+
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const id = en.target.dataset.section;
+    tocLinks.forEach(a => a.setAttribute('aria-current', String(a.dataset.toc === id)));
+    railLinks.forEach(a => {
+      const on = a.dataset.rail === id;
+      a.className = 'shrink-0 px-3 py-1.5 font-mono text-[10px] font-bold tracking-wider border-2 border-ink whitespace-nowrap transition-colors ' +
+        (on ? 'text-ink' : 'bg-paper2');
+      a.style.background = on ? a.dataset.bg : '';
+      if (on) a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    });
+  });
+}, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+sections.forEach(s => spy.observe(s));
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL MOTION
+   ═══════════════════════════════════════════════════════════════ */
+let staggerDelay = 0;
+let staggerTimeout;
+const motionObserver = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) {
+      setTimeout(() => en.target.classList.add('visible'), staggerDelay);
+      staggerDelay += 60;
+      motionObserver.unobserve(en.target);
+    }
+  });
+  clearTimeout(staggerTimeout);
+  staggerTimeout = setTimeout(() => { staggerDelay = 0; }, 100);
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+// Need a small timeout to allow DOM to be parsed since we injected it via innerHTML
+setTimeout(() => {
+  $$('.scroll-reveal').forEach(el => motionObserver.observe(el));
+}, 50);
+
+let ytLoaded = false;
+function toggleMusic() {
+  const playIcon = $('#music-icon-play');
+  const pauseIcon = $('#music-icon-pause');
+  const playerDiv = $('#yt-player');
+  const indicator = $('#music-indicator');
+  const dot = $('#music-dot');
+  const text = $('#music-text');
+  
+  if (!ytLoaded) {
+    playerDiv.innerHTML = '<iframe width="10" height="10" src="https://www.youtube.com/embed/rZM02Z5GiDg?autoplay=1&loop=1&playlist=rZM02Z5GiDg" allow="autoplay" class="opacity-0 pointer-events-none"></iframe>';
+    ytLoaded = true;
+    playIcon.classList.add('hidden');
+    pauseIcon.classList.remove('hidden');
+    text.textContent = 'BGM ON';
+    indicator.classList.remove('bg-cherry/20', 'animate-pulse');
+    indicator.classList.add('bg-leafdeep/40', 'animate-ping');
+    dot.classList.remove('bg-cherry');
+    dot.classList.add('bg-leafdeep');
+    toast('Playing Title Theme...');
+  } else {
+    playerDiv.innerHTML = '';
+    ytLoaded = false;
+    pauseIcon.classList.add('hidden');
+    playIcon.classList.remove('hidden');
+    text.textContent = 'BGM OFF';
+    indicator.classList.remove('bg-leafdeep/40', 'animate-ping');
+    indicator.classList.add('bg-cherry/20', 'animate-pulse');
+    dot.classList.remove('bg-leafdeep');
+    dot.classList.add('bg-cherry');
+    toast('Music stopped');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPING ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+const heroTitle = document.querySelector('h1');
+if (heroTitle) {
+  const text = heroTitle.textContent.trim();
+  heroTitle.innerHTML = '<span class="typing-caret inline-block pr-1"></span>';
+  const span = heroTitle.querySelector('span');
+  let i = 0;
+  const type = () => {
+    if (i < text.length) {
+      span.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 30 + Math.random() * 40); // Random delay like real typing
+    } else {
+      setTimeout(() => span.classList.remove('typing-caret', 'border-right', 'border-r-4'), 2500); // Stop blinking after a while
+    }
+  };
+  setTimeout(type, 400); // Wait a bit before typing starts
+}
+</script>
+
+<div id="yt-player" class="hidden"></div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="sheet" src="sheet_transparent.png" crossorigin="anonymous">
+<div id="out">Processing...</div>
+<script>
+const files = "boy_tool6.png,cheese_la.png,cheese_me.png,cow_title.png,egg_me.png,fish_l.gif,fish_m.gif,fish_s.gif,food_mayog.png,food_mayomed.gif,food_mayosma.gif,food_relaxtealvs.gif,free_apple.gif,free_bamboo.png,free_grapes.png,free_honey.png,free_matsutake.png,free_shroom.png,gift_bracelet.png,gift_broach.png,gift_earrings.png,gift_necklace.png,grass_red.png,grass_white.gif,grass_yellow.png,house_beach.png,house_farm.png,house_villa.png,icon_chicken.png,icon_chickens.png,icon_cow.png,icon_horse.png,icon_sheep.png,milk_la.png,milk_me.png,mine_copper.gif,mine_fossil.gif,mine_junkore.png,mine_pinkdiamond.gif,mine_ruby.gif,store_choco.png,tool_ax_nor.png,tool_can_nor.png,tool_fpole_nor.png,tool_hammer_nor.png,tool_hoe_nor.png,tool_sickle_nor.png,veg_cabbage.png,veg_carrot.png,veg_cucumber.png,veg_eggplant.png,veg_gpepper.png,veg_onion.png,veg_pineapple.png,veg_potato.png,veg_pumpkin.png,veg_spinich.png,veg_spotato.png,veg_strawberry.png,veg_tomato.png,veg_turnip.png,wool_la.png,wool_me.png,yarn_me.png".split(',');
+
+window.onload = async () => {
+  const sheet = document.getElementById('sheet');
+  const c1 = document.createElement('canvas');
+  c1.width = sheet.width; c1.height = sheet.height;
+  const ctx1 = c1.getContext('2d');
+  ctx1.drawImage(sheet, 0, 0);
+  const d1 = ctx1.getImageData(0,0,c1.width,c1.height).data;
+
+  for (const f of files) {
+    const img = new Image();
+    img.src = 'items/' + f;
+    await new Promise(r => { img.onload = r; img.onerror = r; });
+    if (!img.width) continue;
+    
+    const c2 = document.createElement('canvas');
+    c2.width = img.width; c2.height = img.height;
+    const ctx2 = c2.getContext('2d');
+    ctx2.drawImage(img, 0, 0);
+    const d2 = ctx2.getImageData(0,0,c2.width,c2.height).data;
+    
+    let best = -1;
+    let bx = -1, by = -1;
+    
+    for (let y = 0; y <= c1.height - c2.height; y++) {
+      for (let x = 0; x <= c1.width - c2.width; x++) {
+        let score = 0;
+        let valid = true;
+        for (let ty = 0; ty < c2.height; ty++) {
+          for (let tx = 0; tx < c2.width; tx++) {
+            const i2 = (ty * c2.width + tx) * 4;
+            if (d2[i2+3] === 0) continue; // ignore transparent
+            
+            const i1 = ((y + ty) * c1.width + (x + tx)) * 4;
+            if (d1[i1+3] === 0) {
+              score += 255*3; // penalize mismatch against transparent
+            } else {
+              score += Math.abs(d1[i1]-d2[i2]) + Math.abs(d1[i1+1]-d2[i2+1]) + Math.abs(d1[i1+2]-d2[i2+2]);
+            }
+            if (best !== -1 && score >= best) { valid = false; break; }
+          }
+          if (!valid) break;
+        }
+        if (valid && (best === -1 || score < best)) {
+          best = score;
+          bx = x; by = y;
+        }
+      }
+    }
+    
+    if (bx !== -1) {
+      // Create a 16x16 or 24x24 canvas for the clean crop
+      const cropC = document.createElement('canvas');
+      cropC.width = c2.width; cropC.height = c2.height;
+      const cropCtx = cropC.getContext('2d');
+      cropCtx.drawImage(c1, bx, by, c2.width, c2.height, 0, 0, c2.width, c2.height);
+      const dataUrl = cropC.toDataURL('image/webp');
+      
+      await fetch('http://127.0.0.1:8001/', {
+        method: 'POST',
+        body: JSON.stringify({ filename: f, image: dataUrl })
+      });
+      document.getElementById('out').innerHTML += `Processed ${f}<br>`;
+    }
+  }
+  document.getElementById('out').innerHTML += `<b>ALL DONE!</b>`;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+[
+  {
+    "name": "Mayonnaise (S)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/6c/Mayonnaise_%28S%29.png/revision/latest?cb=20200602092317"
+  },
+  {
+    "name": "Mayonnaise (M)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/4/44/Mayonnaise_%28M%29.png/revision/latest?cb=20200602092317"
+  },
+  {
+    "name": "Mayonnaise (L)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/0/01/Mayonnaise_%28L%29.png/revision/latest?cb=20200602092318"
+  },
+  {
+    "name": "Mayonnaise (G)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/a5/Mayonnaise_%28G%29.png/revision/latest?cb=20200602092318"
+  },
+  {
+    "name": "Mayonnaise (P)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/1/16/Mayonnaise_%28P%29.png/revision/latest?cb=20200602092319"
+  },
+  {
+    "name": "Mayonnaise (X)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/f9/Mayonnaise_%28X%29.png/revision/latest?cb=20200602092319"
+  },
+  {
+    "name": "Mayonnaise (X)*",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/f9/Mayonnaise_%28X%29.png/revision/latest?cb=20200602092319"
+  },
+  {
+    "name": "X Egg",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/2d/X_Egg.png/revision/latest?cb=20200602092319"
+  },
+  {
+    "name": "Milk (X)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/3/34/Milk_%28X%29.png/revision/latest?cb=20200602092320"
+  },
+  {
+    "name": "Cheese (X)",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/9/94/Cheese_%28X%29_%28FoMT%29.png/revision/latest?cb=20200602092604"
+  },
+  {
+    "name": "Wild Grape Juice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/c/c3/Wild_Grape_Juice_%28FoMT%29.png/revision/latest?cb=20200602092604"
+  },
+  {
+    "name": "Pickles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/2e/Pickles_%28FoMT%29.png/revision/latest?cb=20200602092605"
+  },
+  {
+    "name": "Salad",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/5/5c/Salad_%28FoMT%29.png/revision/latest?cb=20200602092605"
+  },
+  {
+    "name": "Curry Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/d/d9/Curry_Rice_%28FoMT%29.png/revision/latest?cb=20200602092606"
+  },
+  {
+    "name": "Stew",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/b/bf/Stew_%28FoMT%29.png/revision/latest?cb=20200602092606"
+  },
+  {
+    "name": "Miso Soup",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/5/54/Miso_Soup_%28FoMT%29.png/revision/latest?cb=20200602092606"
+  },
+  {
+    "name": "Stir Fry",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/e/e1/Stir_Fry_%28FoMT%29.png/revision/latest?cb=20200602092607"
+  },
+  {
+    "name": "Fried Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/1/1f/Fried_Rice_%28FoMT%29.png/revision/latest?cb=20200602092756"
+  },
+  {
+    "name": "Savory Pancake",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/5/58/Savory_Pancake_%28FoMT%29.png/revision/latest?cb=20200602093058"
+  },
+  {
+    "name": "Sandwich",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/79/Sandwich_%28FoMT%29.png/revision/latest?cb=20200602092757"
+  },
+  {
+    "name": "Fruit Juice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/af/Fruit_Juice_%28FoMT%29.png/revision/latest?cb=20200602092757"
+  },
+  {
+    "name": "Fruit Latte",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/3/39/Fruit_Latte_%28FoMT%29.png/revision/latest?cb=20200602092758"
+  },
+  {
+    "name": "Vegetable Juice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/f5/Vegetable_Juice_%28FoMT%29.png/revision/latest?cb=20200602092758"
+  },
+  {
+    "name": "Vegetable Latte",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/fc/Vegetable_Latte_%28FoMT%29.png/revision/latest?cb=20200602092759"
+  },
+  {
+    "name": "Mixed Juice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/6c/Mixed_Juice_%28FoMT%29.png/revision/latest?cb=20200602092759"
+  },
+  {
+    "name": "Mixed Latte",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/2d/Mixed_Latte_%28FoMT%29.png/revision/latest?cb=20200602093311"
+  },
+  {
+    "name": "Pickled Turnip",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/b/b3/Pickled_Turnip_%28FoMT%29.png/revision/latest?cb=20200602093311"
+  },
+  {
+    "name": "French Fries",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/9/99/French_Fries_%28FoMT%29.png/revision/latest?cb=20200602093312"
+  },
+  {
+    "name": "Strawberry Jam",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/72/Strawberry_Jam_%28FoMT%29.png/revision/latest?cb=20200602093312"
+  },
+  {
+    "name": "Strawberry Milk",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/c/c5/Strawberry_Milk_%28FoMT%29.png/revision/latest?cb=20200602093312"
+  },
+  {
+    "name": "Tomato Juice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/9/90/Tomato_Juice_%28FoMT%29.png/revision/latest?cb=20200602093313"
+  },
+  {
+    "name": "Popcorn",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/d/d6/Popcorn_%28FoMT%29.png/revision/latest?cb=20200602093314"
+  },
+  {
+    "name": "Corn Flakes",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/ad/Corn_Flakes.png/revision/latest?cb=20200602093434"
+  },
+  {
+    "name": "Baked Corn",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/6a/Baked_Corn.png/revision/latest?cb=20200602093435"
+  },
+  {
+    "name": "Pineapple Juice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/fd/Pineapple_Juice.png/revision/latest?cb=20200602093436"
+  },
+  {
+    "name": "Pumpkin Pudding",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/4/44/Pumpkin_Pudding.png/revision/latest?cb=20200602093436"
+  },
+  {
+    "name": "Pumpkin Stew",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/3/35/Pumpkin_Stew.png/revision/latest?cb=20200602093436"
+  },
+  {
+    "name": "Happy Eggplant",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/22/Happy_Eggplant.png/revision/latest?cb=20200602093437"
+  },
+  {
+    "name": "Sweet Potatoes",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/a6/Sweet_Potatoes.png/revision/latest?cb=20200602093437"
+  },
+  {
+    "name": "Baked Sweet Potato",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/5/57/Baked_Sweet_Potato.png/revision/latest?cb=20200602093438"
+  },
+  {
+    "name": "Greens",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/3/32/Greens_%28FoMT%29.png/revision/latest?cb=20200602093614"
+  },
+  {
+    "name": "Scrambled Eggs",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/4/4f/Scrambled_Eggs_%28FoMT%29.png/revision/latest?cb=20200602093614"
+  },
+  {
+    "name": "Omelet",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/61/Omelet_%28FoMT%29.png/revision/latest?cb=20200602093615"
+  },
+  {
+    "name": "Omelet Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/0/02/Omelet_Rice_%28FoMT%29.png/revision/latest?cb=20200602093615"
+  },
+  {
+    "name": "Boiled Egg",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/4/41/Boiled_Egg_%28FoMT%29.png/revision/latest?cb=20200602093615"
+  },
+  {
+    "name": "Pudding",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/c/c6/Pudding_%28FoMT%29.png/revision/latest?cb=20200602093616"
+  },
+  {
+    "name": "Hot Milk",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/8/8d/Hot_Milk_%28FoMT%29.png/revision/latest?cb=20200602093616"
+  },
+  {
+    "name": "Butter",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/a8/Butter_%28FoMT%29.png/revision/latest?cb=20200602093617"
+  },
+  {
+    "name": "Cheese Cake",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/0/0e/Cheese_Cake_%28FoMT%29.png/revision/latest?cb=20200602093734"
+  },
+  {
+    "name": "Cheese Fondue",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/6a/Cheese_Fondue_%28FoMT%29.png/revision/latest?cb=20200602093734"
+  },
+  {
+    "name": "Apple Pie",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/1/17/Apple_Pie_%28FoMT%29.png/revision/latest?cb=20200602093735"
+  },
+  {
+    "name": "Apple Jam",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/ff/Apple_Jam_%28FoMT%29.png/revision/latest?cb=20200602093735"
+  },
+  {
+    "name": "Apple Souffle",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/b/b8/Apple_Souffle_%28FoMT%29.png/revision/latest?cb=20200602093736"
+  },
+  {
+    "name": "Bamboo Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/7e/Bamboo_Rice_%28FoMT%29.png/revision/latest?cb=20200602093736"
+  },
+  {
+    "name": "Grape Jam",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/e/ed/Grape_Jam_%28FoMT%29.png/revision/latest?cb=20200602093737"
+  },
+  {
+    "name": "Grape Juice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/af/Grape_Juice_%28FoMT%29.png/revision/latest?cb=20200602093737"
+  },
+  {
+    "name": "Mushroom Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/d/d3/Mushroom_Rice.png/revision/latest?cb=20200602093843"
+  },
+  {
+    "name": "Truffle Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/5/54/Truffle_Rice.png/revision/latest?cb=20200602093844"
+  },
+  {
+    "name": "Sushi",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/6d/Sushi.png/revision/latest?cb=20200602093844"
+  },
+  {
+    "name": "Jam Bun",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/4/49/Jam_Bun.png/revision/latest?cb=20200602093844"
+  },
+  {
+    "name": "Dinner Roll",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/f9/Dinner_Roll.png/revision/latest?cb=20200602093845"
+  },
+  {
+    "name": "Raisin Bread",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/c/cd/Raisin_Bread.png/revision/latest?cb=20200602093845"
+  },
+  {
+    "name": "Curry Bread",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/0/02/Curry_Bread.png/revision/latest?cb=20200602093846"
+  },
+  {
+    "name": "Toast",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/3/32/Toast.png/revision/latest?cb=20200602093846"
+  },
+  {
+    "name": "French Toast",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/f7/French_Toast_%28FoMT%29.png/revision/latest?cb=20200602094049"
+  },
+  {
+    "name": "Sashimi",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/75/Sashimi_%28FoMT%29.png/revision/latest?cb=20200602094050"
+  },
+  {
+    "name": "Grilled Fish",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/73/Grilled_Fish_%28FoMT%29.png/revision/latest?cb=20200602094050"
+  },
+  {
+    "name": "Chirashi Sushi",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/d/d5/Chirashi_Sushi_%28FoMT%29.png/revision/latest?cb=20200602094051"
+  },
+  {
+    "name": "Pizza",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/fb/Pizza_%28FoMT%29.png/revision/latest?cb=20200602094051"
+  },
+  {
+    "name": "Noodles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/20/Noodles_%28FoMT%29.png/revision/latest?cb=20200602094052"
+  },
+  {
+    "name": "Curry Noodles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/e/e5/Curry_Noodles_%28FoMT%29.png/revision/latest?cb=20200602094052"
+  },
+  {
+    "name": "Tempura Noodles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/f/fe/Tempura_Noodles_%28FoMT%29.png/revision/latest?cb=20200602094304"
+  },
+  {
+    "name": "Fried Noodles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/70/Fried_Noodles_%28FoMT%29.png/revision/latest?cb=20200602094301"
+  },
+  {
+    "name": "Buckwheat Noodles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/3/31/Buckwheat_Noodles_%28FoMT%29.png/revision/latest?cb=20200602094303"
+  },
+  {
+    "name": "Tempura Buckwheat Noodles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/3/38/Tempura_Buckwheat_Noodles_%28FoMT%29.png/revision/latest?cb=20200701123536"
+  },
+  {
+    "name": "Fried Buckwheat Noodles",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/a9/Fried_Buckwheat_Noodles_%28FoMT%29.png/revision/latest?cb=20200602094305"
+  },
+  {
+    "name": "Buckwheat Chips",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/4/47/Buckwheat_Chips_%28FoMT%29.png/revision/latest?cb=20200602094306"
+  },
+  {
+    "name": "Tempura",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/a5/Tempura_%28FoMT%29.png/revision/latest?cb=20200602094308"
+  },
+  {
+    "name": "Mountain Stew",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/d/d6/Mountain_Stew_%28FoMT%29.png/revision/latest?cb=20200602094309"
+  },
+  {
+    "name": "Moon Dumpling",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/64/Moon_Dumplings_%28FoMT%29.png/revision/latest?cb=20200602094310"
+  },
+  {
+    "name": "Roasted Rice Cake",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/2b/Roasted_Rice_Cake.png/revision/latest?cb=20200602094431"
+  },
+  {
+    "name": "Toasted Rice Ball",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/b/b8/Toasted_Rice_Ball.png/revision/latest?cb=20200602094432"
+  },
+  {
+    "name": "Rice Gruel",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/69/Rice_Gruel.png/revision/latest?cb=20200602094432"
+  },
+  {
+    "name": "Tempura Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/0/07/Tempura_Rice.png/revision/latest?cb=20200602094433"
+  },
+  {
+    "name": "Egg Over Rice",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/a/a2/Egg_Over_Rice.png/revision/latest?cb=20200602094433"
+  },
+  {
+    "name": "Candied Potato",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/9/96/Candied_Potato.png/revision/latest?cb=20200602094434"
+  },
+  {
+    "name": "Potato Pancakes",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/b/bb/Potato_Pancakes.png/revision/latest?cb=20200602094434"
+  },
+  {
+    "name": "Fish Sticks",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/1/11/Fish_Sticks.png/revision/latest?cb=20200602094434"
+  },
+  {
+    "name": "Cookies",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/9/9d/Cookies_%28FoMT%29.png/revision/latest?cb=20200602094600"
+  },
+  {
+    "name": "Chocolate Cookies",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/8/8c/Chocolate_Cookies_%28FoMT%29.png/revision/latest?cb=20200602094600"
+  },
+  {
+    "name": "Ice Cream",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/78/Ice_Cream_%28FoMT%29.png/revision/latest?cb=20200602094600"
+  },
+  {
+    "name": "Cake",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/1/1e/Cake_%28FoMT%29.png/revision/latest?cb=20200602094601"
+  },
+  {
+    "name": "Chocolate Cake",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/d/d0/Chocolate_Cake_%28FoMT%29.png/revision/latest?cb=20200602094601"
+  },
+  {
+    "name": "Pancakes",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/7c/Pancakes_%28FoMT%29.png/revision/latest?cb=20200602094602"
+  },
+  {
+    "name": "Relaxation Tea",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/1/10/Relaxation_Tea_%28FoMT%29.png/revision/latest?cb=20200602094602"
+  },
+  {
+    "name": "SUGDW Apple",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/8/8f/Apple_%28FoMT%29.png/revision/latest?cb=20200902064530"
+  },
+  {
+    "name": "HMSGB Apple",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/8/8f/Apple_%28FoMT%29.png/revision/latest?cb=20200902064530"
+  },
+  {
+    "name": "AEPFE Apple",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/8/8f/Apple_%28FoMT%29.png/revision/latest?cb=20200902064530"
+  },
+  {
+    "name": "Bodigizer",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/7/7c/Bodigizer_%28FoMT%29.png/revision/latest?cb=20200602094727"
+  },
+  {
+    "name": "Bodigizer XL",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/6a/Bodigizer_XL_%28FoMT%29.png/revision/latest?cb=20200602094727"
+  },
+  {
+    "name": "Turbojolt",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/2f/Turbojolt_%28FoMT%29.png/revision/latest?cb=20200602094728"
+  },
+  {
+    "name": "Turbojolt XL",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/5/55/Turbojolt_XL_%28FoMT%29.png/revision/latest?cb=20200602094728"
+  },
+  {
+    "name": "Relaxation Tea Leaves",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/6/64/Relaxation_Tea_Leaves_%28FoMT%29.png/revision/latest?cb=20200602094729"
+  },
+  {
+    "name": "Elli Leaves",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/0/00/Elli_Leaves_%28FoMT%29.png/revision/latest?cb=20200602094729"
+  },
+  {
+    "name": "The Spring Sun",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/2/25/The_Spring_Sun.png/revision/latest?cb=20200602094837"
+  },
+  {
+    "name": "The Summer Sun",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/8/88/The_Summer_Sun.png/revision/latest?cb=20200602094837"
+  },
+  {
+    "name": "The Autumn Sun",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/c/ce/The_Autumn_Sun.png/revision/latest?cb=20200602094837"
+  },
+  {
+    "name": "The Winter Sun",
+    "url": "https://static.wikia.nocookie.net/hmwikia/images/4/42/The_Winter_Sun.png/revision/latest?cb=20200602094838"
+  }
+]

@@ -1,0 +1,758 @@
+[
+  {
+    "name": "Mayonnaise (S)",
+    "details": "Utensils: Whisk | Seasoning: Vinegar | Ingredients: Regular Quality Egg, Oil \u2014 Place Eggs in the Mayonnaise Maker.",
+    "req_ingredients": "Regular Quality Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (M)",
+    "details": "Utensils: Whisk | Seasoning: Vinegar | Ingredients: Good Quality Egg, Oil \u2014 Place Eggs in the Mayonnaise Maker.",
+    "req_ingredients": "Good Quality Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (L)",
+    "details": "Utensils: Whisk | Seasoning: Vinegar | Ingredients: High Quality Egg, Oil \u2014 Place Eggs in the Mayonnaise Maker.",
+    "req_ingredients": "High Quality Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (G)",
+    "details": "Utensils: Whisk | Seasoning: Vinegar | Ingredients: Golden Egg, Oil \u2014 Place Eggs in the Mayonnaise Maker.",
+    "req_ingredients": "Golden Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (P)",
+    "details": "Utensils: Whisk | Seasoning: Vinegar | Ingredients: P Egg, Oil \u2014 Place Eggs in the Mayonnaise Maker.",
+    "req_ingredients": "P Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (X)",
+    "details": "Utensils: Whisk | Seasoning: Vinegar | Ingredients: X Egg, Oil \u2014 Place Eggs in the Mayonnaise Maker.",
+    "req_ingredients": "X Egg, Oil",
+    "req_utensils": "Whisk",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Mayonnaise (X)",
+    "details": "Ingredients: Mayonnaise (S), Mayonnaise (M), Mayonnaise (L), Mayonnaise (G), Mayonnaise (P) \u2014 Place Eggs in the Mayonnaise Maker.",
+    "req_ingredients": "Mayonnaise (S), Mayonnaise (M), Mayonnaise (L), Mayonnaise (G), Mayonnaise (P)",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "X Egg",
+    "details": "Ingredients: Regular Quality Egg, Good Quality Egg, High Quality Egg, Golden Egg, P Egg \u2014 Can be eaten or shipped.",
+    "req_ingredients": "Regular Quality Egg, Good Quality Egg, High Quality Egg, Golden Egg, P Egg",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Milk (X)",
+    "details": "Ingredients: Milk (S), Milk (M), Milk (L), Milk (G), Milk (P) \u2014 Milk from a Cow. Can be drunk or shipped.",
+    "req_ingredients": "Milk (S), Milk (M), Milk (L), Milk (G), Milk (P)",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Cheese (X)",
+    "details": "Ingredients: Cheese (S), Cheese (M), Cheese (L), Cheese (G), Cheese (P) \u2014 Place Milk in the Cheese Maker.",
+    "req_ingredients": "Cheese (S), Cheese (M), Cheese (L), Cheese (G), Cheese (P)",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Wild Grape Juice",
+    "details": "Utensils: Pot | Ingredients: Wild Grape, Wine, Purple Grass \u2014 A wine made with Wild Grapes.",
+    "req_ingredients": "Wild Grape, Wine, Purple Grass",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Pickles",
+    "details": "Seasoning: Salt | Ingredients: Cucumber \u2014 A Pickled Cucumber. To eat or use as a gift.",
+    "req_ingredients": "Cucumber",
+    "req_utensils": "",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Salad",
+    "details": "Utensils: Knife | Ingredients: One or more of: Cucumber Cabbage Tomato Carrot \u2014 Made with fresh vegetables. To eat or use as a gift.",
+    "req_ingredients": "One or more of: Cucumber Cabbage Tomato Carrot",
+    "req_utensils": "Knife",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Curry Rice",
+    "details": "Utensils: Pot | Ingredients: Rice Balls, Curry Powder \u2014 Curry eaten with Rice. To eat or use as a gift.",
+    "req_ingredients": "Rice Balls, Curry Powder",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Stew",
+    "details": "Utensils: Pot | Seasoning: Salt | Ingredients: Flour, any Milk \u2014 Stewed vegetables. To eat or use as a gift f.",
+    "req_ingredients": "Flour, any Milk",
+    "req_utensils": "Pot",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Miso Soup",
+    "details": "Utensils: Pot | Seasoning: Miso, Salt | Ingredients: One or more of: Bamboo Shoot Mushroom Truffle Turnip Corn Carrot Eggplant Onion Tomato \u2014 A delicious soup. To drink or use as a gift.",
+    "req_ingredients": "One or more of: Bamboo Shoot Mushroom Truffle Turnip Corn Carrot Eggplant Onion Tomato",
+    "req_utensils": "Pot",
+    "req_seasoning": "Miso, Salt"
+  },
+  {
+    "name": "Stir Fry",
+    "details": "Utensils: Knife, Frying Pan | Seasoning: Soy Sauce | Ingredients: Oil, Cabbage \u2014 Healthy veggy stir fry. To eat or use as a gift.",
+    "req_ingredients": "Oil, Cabbage",
+    "req_utensils": "Knife, Frying Pan",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Fried Rice",
+    "details": "Utensils: Frying Pan | Ingredients: Rice Balls, any Egg, Oil \u2014 A yummy rice dish. To eat or use as a gift.",
+    "req_ingredients": "Rice Balls, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Savory Pancake",
+    "details": "Utensils: Frying Pan, Knife | Ingredients: Cabbage, Oil, Flour, Egg \u2014 Made with flour and veggies. To eat or use as a gift.",
+    "req_ingredients": "Cabbage, Oil, Flour, Egg",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Sandwich",
+    "details": "Utensils: Knife | Ingredients: Bread, one or more of: Boiled Egg Cucumber Tomato \u2014 An old favorite. To eat or use as a gift.",
+    "req_ingredients": "Bread, one or more of: Boiled Egg Cucumber Tomato",
+    "req_utensils": "Knife",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Fruit Juice",
+    "details": "Utensils: Mixer | Ingredients: One or more of: Any Apple Strawberry Pineapple Wild Grapes \u2014 A drink made with fruits. To drink or use as a gift.",
+    "req_ingredients": "One or more of: Any Apple Strawberry Pineapple Wild Grapes",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Fruit Latte",
+    "details": "Utensils: Mixer | Ingredients: Any Milk, one or more of: Any Apple Strawberry Pineapple Wild Grapes \u2014 Made with fruits and Milk. To eat or use as a gift.",
+    "req_ingredients": "Any Milk, one or more of: Any Apple Strawberry Pineapple Wild Grapes",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Vegetable Juice",
+    "details": "Utensils: Mixer | Ingredients: One or more of: Cucumber Cabbage Carrot Onion Spinach \u2014 A drink made with veggies. To drink or use as a gift.",
+    "req_ingredients": "One or more of: Cucumber Cabbage Carrot Onion Spinach",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Vegetable Latte",
+    "details": "Utensils: Mixer | Ingredients: Any Milk, one or more of: Cucumber Cabbage Carrot Turnip Onion Green Pepper Spinach Tomato \u2014 A drink made with vegetables and Milk.",
+    "req_ingredients": "Any Milk, one or more of: Cucumber Cabbage Carrot Turnip Onion Green Pepper Spinach Tomato",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Mixed Juice",
+    "details": "Utensils: Mixer | Ingredients: Vegetable Juice, Fruit Juice \u2014 A drink made with fruits. To drink or use as a gift.",
+    "req_ingredients": "Vegetable Juice, Fruit Juice",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Mixed Latte",
+    "details": "Utensils: Mixer | Ingredients: Mixed Juice, any Milk \u2014 A drink made with fruit, vegetables and Milk.",
+    "req_ingredients": "Mixed Juice, any Milk",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Pickled Turnip",
+    "details": "Utensils: Knife | Seasoning: Vinegar | Ingredients: Turnips \u2014 A Turnip dish. To eat or use as a gift.",
+    "req_ingredients": "Turnips",
+    "req_utensils": "Knife",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "French Fries",
+    "details": "Utensils: Frying Pan, Knife | Ingredients: Potato, Oil \u2014 Made with fresh Tomatoes. To eat or use as a gift.",
+    "req_ingredients": "Potato, Oil",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Strawberry Jam",
+    "details": "Utensils: Pot | Seasoning: Sugar | Ingredients: Strawberry \u2014 Jam made with Strawberries. To eat or use as a gift.",
+    "req_ingredients": "Strawberry",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Strawberry Milk",
+    "details": "Utensils: Mixer | Ingredients: Strawberry, any Milk \u2014 A drink made with Strawberries and Milk. To drink or use as a gift.",
+    "req_ingredients": "Strawberry, any Milk",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Tomato Juice",
+    "details": "Utensils: Mixer | Ingredients: Tomato \u2014 A juice made from Tomatoes. To drink or use as a gift.",
+    "req_ingredients": "Tomato",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Popcorn",
+    "details": "Utensils: Frying Pan | Ingredients: Corn, Butter \u2014 Made with fresh Corn. To eat or use as a gift.",
+    "req_ingredients": "Corn, Butter",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Corn Flakes",
+    "details": "Utensils: Oven,&#160; Rolling Pin | Ingredients: Corn \u2014 Great in the morning. To eat or use as a gift.",
+    "req_ingredients": "Corn",
+    "req_utensils": "Oven,&#160; Rolling Pin",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Baked Corn",
+    "details": "Utensils: Oven | Ingredients: Corn \u2014 Made with fresh Corn. To eat or use as a gift.",
+    "req_ingredients": "Corn",
+    "req_utensils": "Oven",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Pineapple Juice",
+    "details": "Utensils: Mixer | Ingredients: Pineapple \u2014 Freshly squeezed Pineapple. To drink or use as a gift.",
+    "req_ingredients": "Pineapple",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Pumpkin Pudding",
+    "details": "Utensils: Pot, Oven | Seasoning: Sugar | Ingredients: Any Egg, any Milk, Pumpkin \u2014 A delicious dessert. To eat or use as a gift.",
+    "req_ingredients": "Any Egg, any Milk, Pumpkin",
+    "req_utensils": "Pot, Oven",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Pumpkin Stew",
+    "details": "Utensils: Pot | Seasoning: Sugar, Soy Sauce | Ingredients: Pumpkin \u2014 Savory Pumpkin dish. To eat or use as a gift.",
+    "req_ingredients": "Pumpkin",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar, Soy Sauce"
+  },
+  {
+    "name": "Happy Eggplant",
+    "details": "Utensils: Frying Pan | Seasoning: Sugar, Soy Sauce, Miso | Ingredients: Eggplant \u2014 Using Eggplant and Miso, To eat or use as a gift.",
+    "req_ingredients": "Eggplant",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "Sugar, Soy Sauce, Miso"
+  },
+  {
+    "name": "Sweet Potatoes",
+    "details": "Utensils: Pot, Oven | Seasoning: Sugar | Ingredients: Butter, any Egg, Sweet Potato \u2014 Sweet and yummy. To eat or use as a gift.",
+    "req_ingredients": "Butter, any Egg, Sweet Potato",
+    "req_utensils": "Pot, Oven",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Baked Sweet Potato",
+    "details": "Utensils: Oven | Ingredients: Sweet Potato \u2014 Sweet and delicious. To eat or use as a gift.",
+    "req_ingredients": "Sweet Potato",
+    "req_utensils": "Oven",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Greens",
+    "details": "Utensils: Pot | Seasoning: Soy Sauce | Ingredients: Spinach \u2014 Healthy and delicious. To eat or use as a gift.",
+    "req_ingredients": "Spinach",
+    "req_utensils": "Pot",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Scrambled Eggs",
+    "details": "Utensils: Frying Pan | Ingredients: Any Egg, Oil \u2014 Made with fresh Eggs. To eat or use as a gift.",
+    "req_ingredients": "Any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Omelet",
+    "details": "Utensils: Frying Pan | Ingredients: Any Egg, any Milk, Oil \u2014 Made with fresh Eggs. To eat or use as a gift.",
+    "req_ingredients": "Any Egg, any Milk, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Omelet Rice",
+    "details": "Utensils: Frying Pan | Ingredients: Any Egg, any Milk, Oil, Rice Ball \u2014 Made with fresh Eggs. To eat or use as a gift.",
+    "req_ingredients": "Any Egg, any Milk, Oil, Rice Ball",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Boiled Egg",
+    "details": "Utensils: Pot | Ingredients: Egg \u2014 Made with a fresh Egg. To eat or use as a gift.",
+    "req_ingredients": "Egg",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Pudding",
+    "details": "Utensils: Pot, Oven | Seasoning: Sugar | Ingredients: Any Egg, any Milk \u2014 A delicious dessert. To eat or use as a gift.",
+    "req_ingredients": "Any Egg, any Milk",
+    "req_utensils": "Pot, Oven",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Hot Milk",
+    "details": "Utensils: Pot | Ingredients: Any Milk \u2014 Made with fresh Milk. To eat or use as a gift.",
+    "req_ingredients": "Any Milk",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Butter",
+    "details": "Utensils: Mixer | Ingredients: Any Milk \u2014 Made with fresh Milk. To eat or use as a gift.",
+    "req_ingredients": "Any Milk",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Cheese Cake",
+    "details": "Utensils: Pot, Oven, Whisk | Seasoning: Sugar | Ingredients: Any Cheese, any Egg, any Milk \u2014 Made with fresh Cheese. To eat or use as a gift.",
+    "req_ingredients": "Any Cheese, any Egg, any Milk",
+    "req_utensils": "Pot, Oven, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Cheese Fondue",
+    "details": "Utensils: Pot | Ingredients: Cheese, Bread \u2014 Made with fresh Cheese. To eat or use as a gift.",
+    "req_ingredients": "Cheese, Bread",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Apple Pie",
+    "details": "Utensils: Pot, Oven, Knife, Rolling Pin | Seasoning: Sugar | Ingredients: Any Apple, any Egg, Butter, Flour \u2014 A traditional dessert. To eat or use as a gift.",
+    "req_ingredients": "Any Apple, any Egg, Butter, Flour",
+    "req_utensils": "Pot, Oven, Knife, Rolling Pin",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Apple Jam",
+    "details": "Utensils: Pot | Seasoning: Sugar | Ingredients: Any Apple \u2014 Made with fresh Apples.\\nTo eat or use as a gift.",
+    "req_ingredients": "Any Apple",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Apple Souffle",
+    "details": "Utensils: Frying Pan | Ingredients: Any Apple \u2014 Made with fresh Apples. To eat or use as a gift.",
+    "req_ingredients": "Any Apple",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Bamboo Rice",
+    "details": "Ingredients: Bamboo Shoot, Rice Ball \u2014 Bamboo Shoots-mixed Rice. To eat or use as a gift.",
+    "req_ingredients": "Bamboo Shoot, Rice Ball",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Grape Jam",
+    "details": "Utensils: Pot | Seasoning: Sugar | Ingredients: Wild Grape \u2014 Made with Wild Grapes. To eat or use as a gift.",
+    "req_ingredients": "Wild Grape",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Grape Juice",
+    "details": "Utensils: Mixer | Ingredients: Wild Grape \u2014 Made with Grapes from the winery or the mountain.",
+    "req_ingredients": "Wild Grape",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Mushroom Rice",
+    "details": "Ingredients: Mushroom, Rice Ball \u2014 Mushroom-mixed Rice. To eat or use as a gift.",
+    "req_ingredients": "Mushroom, Rice Ball",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Truffle Rice",
+    "details": "Ingredients: Truffle, Rice Ball \u2014 Truffle-mixed Rice. To eat or use as a gift.",
+    "req_ingredients": "Truffle, Rice Ball",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Sushi",
+    "details": "Seasoning: Vinegar | Ingredients: Sashimi, Rice Ball \u2014 Made with Sashimi, Rice, and Vinegar.",
+    "req_ingredients": "Sashimi, Rice Ball",
+    "req_utensils": "",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Jam Bun",
+    "details": "Seasoning: Sugar, Salt | Ingredients: Bread, any Jam \u2014 Made with Jam and Bread. To eat or use as a gift.",
+    "req_ingredients": "Bread, any Jam",
+    "req_utensils": "",
+    "req_seasoning": "Sugar, Salt"
+  },
+  {
+    "name": "Dinner Roll",
+    "details": "Ingredients: Bread, Butter \u2014 Made with Bread and Butter. To eat or use as a gift.",
+    "req_ingredients": "Bread, Butter",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Raisin Bread",
+    "details": "Ingredients: Bread, Wild Grapes \u2014 Made with Wild Grapes. To eat or use as a gift.",
+    "req_ingredients": "Bread, Wild Grapes",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Curry Bread",
+    "details": "Utensils: Frying Pan | Ingredients: Bread, Curry Powder, Oil \u2014 Made with Curry and Bread. To eat or use as a gift.",
+    "req_ingredients": "Bread, Curry Powder, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Toast",
+    "details": "Utensils: Oven | Ingredients: Bread \u2014 Toasted Bread. To eat or use as a gift.",
+    "req_ingredients": "Bread",
+    "req_utensils": "Oven",
+    "req_seasoning": ""
+  },
+  {
+    "name": "French Toast",
+    "details": "Utensils: Frying Pan | Seasoning: Sugar | Ingredients: Bread, any Egg, Oil \u2014 Made with fresh Bread. To eat or use as a gift.",
+    "req_ingredients": "Bread, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Sashimi",
+    "details": "Utensils: Knife | Ingredients: Medium Fish or Large Fish \u2014 Thinly sliced raw fish. To eat or use as a gift.",
+    "req_ingredients": "Medium Fish or Large Fish",
+    "req_utensils": "Knife",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Grilled Fish",
+    "details": "Utensils: Frying Pan | Ingredients: Medium Fish, Oil \u2014 Made with fresh fish. To eat or use as a gift.",
+    "req_ingredients": "Medium Fish, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Chirashi Sushi",
+    "details": "Utensils: Knife | Seasoning: Vinegar | Ingredients: Scrambled Eggs, Sashimi, Rice Ball \u2014 Sashimi and other goodies on top of Rice. To eat or use as a gift.",
+    "req_ingredients": "Scrambled Eggs, Sashimi, Rice Ball",
+    "req_utensils": "Knife",
+    "req_seasoning": "Vinegar"
+  },
+  {
+    "name": "Pizza",
+    "details": "Utensils: Oven, Rolling Pin | Seasoning: Salt | Ingredients: Cheese, Flour, Ketchup, Mushroom, Onion, Tomato \u2014 Savory Italian Pizza. To eat or use as a gift.",
+    "req_ingredients": "Cheese, Flour, Ketchup, Mushroom, Onion, Tomato",
+    "req_utensils": "Oven, Rolling Pin",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Noodles",
+    "details": "Utensils: Pot, Rolling Pin, Knife | Ingredients: Flour \u2014 Made with Flour. To eat or use as a gift.",
+    "req_ingredients": "Flour",
+    "req_utensils": "Pot, Rolling Pin, Knife",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Curry Noodles",
+    "details": "Utensils: Pot | Ingredients: Noodles, Curry Powder \u2014 Made with Curry and Noodles. To eat or use as a gift.",
+    "req_ingredients": "Noodles, Curry Powder",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Tempura Noodles",
+    "details": "Utensils: Pot | Ingredients: Noodles, Tempura \u2014 Made with Noodles. To eat or use as a gift.",
+    "req_ingredients": "Noodles, Tempura",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Fried Noodles",
+    "details": "Utensils: Frying Pan | Ingredients: Noodles, any Egg, Oil \u2014 Made with Noodles. To eat or use as a gift.",
+    "req_ingredients": "Noodles, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Buckwheat Noodles",
+    "details": "Utensils: Pot, Knife, Rolling Pin | Ingredients: Buckwheat Flour \u2014 Noodles made with Buckwheat flour.",
+    "req_ingredients": "Buckwheat Flour",
+    "req_utensils": "Pot, Knife, Rolling Pin",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Tempura Buckwheat Noodles",
+    "details": "Utensils: Pot | Ingredients: Tempura, Buckwheat Noodles \u2014 Made with Tempura. To eat or use as a gift.",
+    "req_ingredients": "Tempura, Buckwheat Noodles",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Fried Buckwheat Noodles",
+    "details": "Utensils: Frying Pan | Seasoning: Salt, Vinegar, Soy Sauce | Ingredients: Buckwheat Noodles, any Egg, Oil \u2014 Made with Noodles. To eat or use as a gift.",
+    "req_ingredients": "Buckwheat Noodles, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": "Salt, Vinegar, Soy Sauce"
+  },
+  {
+    "name": "Buckwheat Chips",
+    "details": "Utensils: Pot, Rolling Pin | Ingredients: Buckwheat Flour \u2014 Made with Buckwheat Flour. To eat or use as a gift.",
+    "req_ingredients": "Buckwheat Flour",
+    "req_utensils": "Pot, Rolling Pin",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Tempura",
+    "details": "Utensils: Frying Pan | Ingredients: Flour, any Egg, Oil \u2014 Deep-fried. To eat or use as a gift.",
+    "req_ingredients": "Flour, any Egg, Oil",
+    "req_utensils": "Frying Pan",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Mountain Stew",
+    "details": "Utensils: Pot, Knife | Seasoning: Sugar, Soy Sauce | Ingredients: Carrot, Mushroom, Bamboo Shoot \u2014 A very healthy dish. To eat or use as a gift.",
+    "req_ingredients": "Carrot, Mushroom, Bamboo Shoot",
+    "req_utensils": "Pot, Knife",
+    "req_seasoning": "Sugar, Soy Sauce"
+  },
+  {
+    "name": "Moon Dumpling",
+    "details": "Seasoning: Sugar | Ingredients: Dumpling Powder \u2014 Roasted veggies on a stick. To eat or use as a gift.",
+    "req_ingredients": "Dumpling Powder",
+    "req_utensils": "",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Roasted Rice Cake",
+    "details": "Utensils: Oven | Seasoning: Soy Sauce | Ingredients: Rice Cake \u2014 Made with Rice Cakes. To eat or use as a gift.",
+    "req_ingredients": "Rice Cake",
+    "req_utensils": "Oven",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Toasted Rice Ball",
+    "details": "Utensils: Oven | Seasoning: Soy Sauce | Ingredients: Rice Ball \u2014 Made with Rice. To eat or use as a gift.",
+    "req_ingredients": "Rice Ball",
+    "req_utensils": "Oven",
+    "req_seasoning": "Soy Sauce"
+  },
+  {
+    "name": "Rice Gruel",
+    "details": "Utensils: Pot | Seasoning: Salt | Ingredients: Rice Ball \u2014 A soft Rice soup. To eat or use as a gift.",
+    "req_ingredients": "Rice Ball",
+    "req_utensils": "Pot",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Tempura Rice",
+    "details": "Seasoning: Salt | Ingredients: Rice Ball, Tempura \u2014 Tempura with Rice. To eat or use as a gift.",
+    "req_ingredients": "Rice Ball, Tempura",
+    "req_utensils": "",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Egg Over Rice",
+    "details": "Utensils: Pot | Seasoning: Salt, Soy Sauce | Ingredients: Any Egg, Rice Ball \u2014 Made with Eggs and Rice. To eat or use as a gift.",
+    "req_ingredients": "Any Egg, Rice Ball",
+    "req_utensils": "Pot",
+    "req_seasoning": "Salt, Soy Sauce"
+  },
+  {
+    "name": "Candied Potato",
+    "details": "Utensils: Pot | Seasoning: Sugar | Ingredients: Sweet Potato, Honey \u2014 Potato with sweet glaze. To eat or use as a gift.",
+    "req_ingredients": "Sweet Potato, Honey",
+    "req_utensils": "Pot",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Potato Pancakes",
+    "details": "Utensils: Frying Pan, Knife | Seasoning: Salt | Ingredients: Potato, Onion, any Egg, Oil, Flour \u2014 Made with Potatoes. To eat or use as a gift.",
+    "req_ingredients": "Potato, Onion, any Egg, Oil, Flour",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Fish Sticks",
+    "details": "Utensils: Mixer | Seasoning: Salt | Ingredients: Medium Fish \u2014 Made with Fish. To eat or use as a gift.",
+    "req_ingredients": "Medium Fish",
+    "req_utensils": "Mixer",
+    "req_seasoning": "Salt"
+  },
+  {
+    "name": "Cookies",
+    "details": "Utensils: Oven, Rolling Pin | Seasoning: Sugar | Ingredients: Flour, any Egg, Butter \u2014 A delicious treat. To eat or use as a gift.",
+    "req_ingredients": "Flour, any Egg, Butter",
+    "req_utensils": "Oven, Rolling Pin",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Chocolate Cookies",
+    "details": "Utensils: Oven, Rolling Pin | Seasoning: Sugar | Ingredients: Flour, any Egg, Butter, Chocolate \u2014 A delicious treat. To eat or use as a gift.",
+    "req_ingredients": "Flour, any Egg, Butter, Chocolate",
+    "req_utensils": "Oven, Rolling Pin",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Ice Cream",
+    "details": "Utensils: Pot, Whisk | Seasoning: Sugar | Ingredients: Any Milk, any Egg \u2014 Cold and sweet. To eat or use as a gift.",
+    "req_ingredients": "Any Milk, any Egg",
+    "req_utensils": "Pot, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Cake",
+    "details": "Utensils: Oven, Whisk | Seasoning: Sugar | Ingredients: Butter, Flour, Egg \u2014 A sweet treat. To eat or use as a gift.",
+    "req_ingredients": "Butter, Flour, Egg",
+    "req_utensils": "Oven, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Chocolate Cake",
+    "details": "Utensils: Oven, Whisk | Seasoning: Sugar | Ingredients: Butter, Flour, any Egg, Chocolate \u2014 A delicious treat. To eat or use as a gift.",
+    "req_ingredients": "Butter, Flour, any Egg, Chocolate",
+    "req_utensils": "Oven, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Pancakes",
+    "details": "Utensils: Frying Pan, Whisk | Seasoning: Sugar | Ingredients: Flour, Oil, any Egg, any Milk, Honey, Butter \u2014 Made with Flour. To eat or use as a gift.",
+    "req_ingredients": "Flour, Oil, any Egg, any Milk, Honey, Butter",
+    "req_utensils": "Frying Pan, Whisk",
+    "req_seasoning": "Sugar"
+  },
+  {
+    "name": "Relaxation Tea",
+    "details": "Utensils: Pot | Ingredients: Relaxation Tea Leaves \u2014 An English Tea. To drink or use as a gift.",
+    "req_ingredients": "Relaxation Tea Leaves",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "SUGDW Apple",
+    "details": "Ingredients: Apple, HMSGB Apple, AEPFE Apple \u2014 Full name: Super Ultra Great Delicious Wonderful Apple.",
+    "req_ingredients": "Apple, HMSGB Apple, AEPFE Apple",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "HMSGB Apple",
+    "details": "Ingredients: Apple, SUGDW Apple, AEPFE Apple \u2014 Stands for Hyper-Miracle Sweet-Gorgeous-Beautiful.",
+    "req_ingredients": "Apple, SUGDW Apple, AEPFE Apple",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "AEPFE Apple",
+    "details": "Ingredients: Apple, SUGDW Apple, HMSGB Apple \u2014 Stands for Angelic-Eternal-Pure-Fresh-Elegant.",
+    "req_ingredients": "Apple, SUGDW Apple, HMSGB Apple",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Bodigizer",
+    "details": "Utensils: Pot | Ingredients: Honey, Orange Grass, Black Grass, Red Magic Flower \u2014 Helps recuperate Stamina.",
+    "req_ingredients": "Honey, Orange Grass, Black Grass, Red Magic Flower",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Bodigizer XL",
+    "details": "Utensils: Mixer | Ingredients: Bodigizer, Blue Grass \u2014 Helps recuperate lots of Stamina.",
+    "req_ingredients": "Bodigizer, Blue Grass",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Turbojolt",
+    "details": "Utensils: Pot | Ingredients: Honey, Orange Grass, White Grass, Red Magic Flower \u2014 Helps recuperate Fatigue.",
+    "req_ingredients": "Honey, Orange Grass, White Grass, Red Magic Flower",
+    "req_utensils": "Pot",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Turbojolt XL",
+    "details": "Utensils: Mixer | Ingredients: Turbojolt, Green Grass \u2014 Helps recuperate\\nlots of Fatigue.",
+    "req_ingredients": "Turbojolt, Green Grass",
+    "req_utensils": "Mixer",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Relaxation Tea Leaves",
+    "details": "Utensils: Frying Pan, Knife | Ingredients: Red Grass, Orange Grass, Yellow Grass, Green Grass, Purple Grass, Blue Grass, Indigo Grass, Weed \u2014 Present from the Harvest Sprite's Tea Party.",
+    "req_ingredients": "Red Grass, Orange Grass, Yellow Grass, Green Grass, Purple Grass, Blue Grass, Indigo Grass, Weed",
+    "req_utensils": "Frying Pan, Knife",
+    "req_seasoning": ""
+  },
+  {
+    "name": "Elli Leaves",
+    "details": "Utensils: Frying Pan, Pot, Oven, Knife | Seasoning: Sugar, Salt, Vinegar, Soy Sauce, Miso | Ingredients: Bodigizer XL, Turbojolt XL, all 6 burnt dishes \u2014 Restores Stamina and Fatigue. To eat or use as a gift.",
+    "req_ingredients": "Bodigizer XL, Turbojolt XL, all 6 burnt dishes",
+    "req_utensils": "Frying Pan, Pot, Oven, Knife",
+    "req_seasoning": "Sugar, Salt, Vinegar, Soy Sauce, Miso"
+  },
+  {
+    "name": "The Spring Sun",
+    "details": "Ingredients: Blue Magic Flower, Red Magic Flower, Moon Drop Flower, Toy Flower, Pink Cat Flower \u2014 You can cook it.",
+    "req_ingredients": "Blue Magic Flower, Red Magic Flower, Moon Drop Flower, Toy Flower, Pink Cat Flower",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "The Summer Sun",
+    "details": "Ingredients: All 3 fish sizes, Fossil of Ancient Fish, Pirate Treasure \u2014 You can cook it.",
+    "req_ingredients": "All 3 fish sizes, Fossil of Ancient Fish, Pirate Treasure",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "The Autumn Sun",
+    "details": "Ingredients: Milk (X), Cheese (X), X Egg, Mayonnaise (X), Wool (X), Yarn (X) \u2014 You can cook it.",
+    "req_ingredients": "Milk (X), Cheese (X), X Egg, Mayonnaise (X), Wool (X), Yarn (X)",
+    "req_utensils": "",
+    "req_seasoning": ""
+  },
+  {
+    "name": "The Winter Sun",
+    "details": "Ingredients: Alexandrite, Diamond, Pink Diamond, Emerald, Moonstone, Mythic Stone, Sand Rose \u2014 You can cook it.",
+    "req_ingredients": "Alexandrite, Diamond, Pink Diamond, Emerald, Moonstone, Mythic Stone, Sand Rose",
+    "req_utensils": "",
+    "req_seasoning": ""
+  }
+]

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body>
+<img id="sheet" src="sheet_transparent.png" crossorigin="anonymous">
+<div id="out">Processing...</div>
+<script>
+const files = [
+  'veg_turnip.png', 'veg_potato.png', 'veg_cucumber.png', 'veg_strawberry.png', 'veg_cabbage.png', 'veg_tomato.png', 'veg_corn.png', 'veg_onion.png', 'veg_pumpkin.png', 'veg_pineapple.png', 'veg_eggplant.png', 'veg_carrot.png', 'veg_spotato.png', 'veg_spinich.png', 'veg_gpepper.png', 'free_apple.gif', 'free_honey.png', 'free_bamboo.png', 'free_shroom.png', 'free_matsutake.png', 'free_grapes.png', 'fish_m.gif', 'egg_me.png', 'food_mayomed.gif', 'milk_me.png', 'cheese_me.png', 'wool_me.png', 'yarn_me.png', 'mine_copper.gif', 'mine_junkore.png', 'mine_sagestone.png', 'grass_green.png', 'grass_red.png', 'gift_bracelet.png', 'gift_necklace.png', 'gift_earrings.png', 'gift_broach.png', 'mine_ruby.gif', 'pirate_treasure.gif', 'mine_fossil.gif', 'icon_dog.png', 'icon_horse.png', 'icon_chicken.png', 'icon_cow.png', 'icon_sheep.png', 'tool_hammer_nor.png', 'tool_sickle_nor.png', 'tool_hoe_nor.png', 'tool_ax_nor.png', 'tool_can_nor.png', 'tool_fpole_nor.png', 'house_farm.png', 'house_villa.png', 'boy_tool5.png', 'food_relaxtealvs.gif', 'tool_wcan_sil.png', 'store_choco.png', 'food_mayog.png', 'food_mayosma.gif', 'milk_la.png', 'cheese_la.png', 'fish_l.gif', 'fish_s.gif', 'grass_yellow.png', 'grass_white.gif', 'cow_title.png', 'wool_la.png', 'boy_tool6.png', 'mine_pinkdiamond.gif', 'mine_alexandrite.gif', 'mine_gold.gif', 'sell_redmagicred.gif', 'icon_chickens.png', 'house_beach.png', 'wool_sm.png', 'grass_blue.png'
+];
+
+async function run() {
+  const sheet = document.getElementById('sheet');
+  const out = document.getElementById('out');
+  const c1 = document.createElement('canvas');
+  c1.width = sheet.width; c1.height = sheet.height;
+  const ctx1 = c1.getContext('2d');
+  ctx1.drawImage(sheet, 0, 0);
+  const d1 = ctx1.getImageData(0,0,c1.width,c1.height).data;
+  
+  let results = {};
+  
+  for (const f of files) {
+    const img = new Image();
+    img.src = 'items/' + f;
+    await new Promise(r => { img.onload = r; img.onerror = r; });
+    if (!img.width) continue;
+    
+    const c2 = document.createElement('canvas');
+    c2.width = img.width; c2.height = img.height;
+    const ctx2 = c2.getContext('2d');
+    ctx2.drawImage(img, 0, 0);
+    const d2 = ctx2.getImageData(0,0,c2.width,c2.height).data;
+    
+    // valid pixels
+    let valids = [];
+    for (let ty = 0; ty < c2.height; ty++) {
+      for (let tx = 0; tx < c2.width; tx++) {
+        const i2 = (ty * c2.width + tx) * 4;
+        if (d2[i2+3] > 0) valids.push({x:tx, y:ty, r:d2[i2], g:d2[i2+1], b:d2[i2+2]});
+      }
+    }
+    
+    let best = -1;
+    let bx = -1, by = -1;
+    
+    if (valids.length > 0) {
+        for (let y = 0; y <= c1.height - c2.height; y++) {
+          for (let x = 0; x <= c1.width - c2.width; x++) {
+            let score = 0;
+            let valid = true;
+            for (let v of valids) {
+                const i1 = ((y + v.y) * c1.width + (x + v.x)) * 4;
+                if (d1[i1+3] === 0) score += 255*3;
+                else score += Math.abs(d1[i1]-v.r) + Math.abs(d1[i1+1]-v.g) + Math.abs(d1[i1+2]-v.b);
+                if (best !== -1 && score >= best) { valid = false; break; }
+            }
+            if (valid && (best === -1 || score < best)) {
+              best = score;
+              bx = x; by = y;
+            }
+          }
+        }
+    }
+    results[f] = {x: bx, y: by, w: img.width, h: img.height};
+    await new Promise(r => setTimeout(r, 1)); // yield
+  }
+  
+  out.textContent = JSON.stringify(results);
+}
+window.onload = run;
+</script>
+</body>
+</html>
